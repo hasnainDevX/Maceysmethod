@@ -5,12 +5,13 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
 import HowIHelp from '../components/HowIHelp';
-import Testimonials from '../components/Testimonials';
+// import Testimonials from '../components/Testimonials';
 import LetsChat from '../components/LetsChat';
 import ContactForm from '../components/ContactForm';
 import InstagramFeed from '../components/InstagramFeed';
 import Footer from '../components/Footer';
 import CalendyWidget from '../components/CalendyWidget';
+import Testimonials from '../components/Testimonials';
 
 export default function Home() {
   useEffect(() => {
@@ -94,6 +95,7 @@ export default function Home() {
         <About />
         <Services />
         <HowIHelp />
+        {/* <TestimonialsStack /> */}
         <Testimonials />
         <LetsChat />
         <CalendyWidget/>
