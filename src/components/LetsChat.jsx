@@ -7,7 +7,7 @@ export default function LetsChat() {
   };
 
   return (
-    <section className="py-20 bg-[#faf9f7]" data-testid="section-lets-chat">
+    <section id="book-a-call" className="py-20 bg-[#faf9f7]" data-testid="section-lets-chat">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2

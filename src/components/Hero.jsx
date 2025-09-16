@@ -59,21 +59,26 @@ export default function Hero() {
     <section 
       id="home" 
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#f9f6f2] via-[#f2ede7] to-[#ede6dd]"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-fixed bg-center bg-cover bg-black"
       style={{ fontFamily: '"Playfair Display", serif' }}
     >
       {/* Subtle texture overlay */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-70"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4a574' fill-opacity='0.3'%3E%3Cpath d='m0 40 40-40h-40v40zm40 0v-40h-40l40 40z'/%3E%3C/g%3E%3C/svg%3E")`
+          backgroundImage: `url('https://plus.unsplash.com/premium_photo-1674513559454-35ca6435079f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(2px)',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 0
         }}
       ></div>
 
       <div className="relative z-10 text-center max-w-5xl mx-auto px-6 lg:px-12">
         <div ref={textRef}>
           <h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-[1.1] text-[#2d2826]"
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 leading-[1.1] text-white"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
             Create the headspace <br/>
@@ -82,7 +87,7 @@ export default function Hero() {
           </h1>
           
           <p 
-            className="text-lg md:text-xl lg:text-2xl mb-12 font-light text-[#5a5654] leading-relaxed tracking-wide"
+            className="text-lg md:text-xl lg:text-2xl mb-12 font-light text-white leading-relaxed tracking-wide"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             with a virtual assistant.
@@ -97,23 +102,6 @@ export default function Hero() {
         >
           Learn More
         </button>
-      </div>
-      
-      {/* Floating decorative elements */}
-      <div className="absolute top-1/4 left-8 lg:left-16">
-        <div className="w-24 h-24 bg-[#d4a574]/10 rounded-full blur-xl animate-pulse"></div>
-      </div>
-      
-      <div className="absolute top-1/3 right-12 lg:right-24">
-        <div className="w-16 h-16 bg-[#e8c4a6]/20 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}}></div>
-      </div>
-      
-      <div className="absolute bottom-1/4 left-1/4">
-        <div className="w-20 h-20 bg-[#f0ede8]/30 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
-      </div>
-      
-      <div className="absolute bottom-1/3 right-8">
-        <div className="w-32 h-32 bg-[#d4a574]/5 rounded-full blur-2xl animate-pulse" style={{animationDelay: '0.5s'}}></div>
       </div>
 
       {/* Scroll indicator */}

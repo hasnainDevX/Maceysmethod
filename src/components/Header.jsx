@@ -44,17 +44,17 @@ export default function Header() {
               onClick={() => scrollToSection('home')}
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Mia Camilla
+              Va4 
             </h1>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-12">
             <button 
-              onClick={() => scrollToSection('home')}
+              onClick={() => scrollToSection('about')}
               className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
-              Home
+              About
             </button>
             <button 
               onClick={() => scrollToSection('services')}
@@ -63,16 +63,22 @@ export default function Header() {
               Services
             </button>
             <button 
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection('testimonials')}
               className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
-              About
+              Testimonials
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="bg-[#d4a574] text-white px-6 py-2.5 rounded-full hover:bg-[#c29660] transition-all duration-300 font-light text-sm uppercase tracking-wider"
+              className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
               Contact
+            </button>
+            <button 
+              onClick={() => scrollToSection('book-a-call')}
+              className="bg-[#d4a574] text-white px-6 py-2.5 rounded-full hover:bg-[#c29660] transition-all duration-300 font-light text-sm uppercase tracking-wider"
+            >
+              Book a Call
             </button>
           </div>
           
@@ -105,10 +111,10 @@ export default function Header() {
           <div className="md:hidden border-t border-[#f0ede8] bg-[#fefcf9]/98 backdrop-blur-md">
             <div className="px-4 py-6 space-y-4">
               <button 
-                onClick={() => scrollToSection('home')}
+                onClick={() => scrollToSection('about')}
                 className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
               >
-                Home
+                About
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
@@ -117,16 +123,22 @@ export default function Header() {
                 Services
               </button>
               <button 
-                onClick={() => scrollToSection('about')}
+                onClick={() => scrollToSection('testimonials')}
                 className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
               >
-                About
+                Testimonials
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-center mt-6 bg-[#d4a574] text-white py-3 px-6 rounded-full hover:bg-[#c29660] transition-all duration-300 font-light text-sm uppercase tracking-wider"
+                className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
               >
                 Contact
+              </button>
+              <button 
+                onClick={() => scrollToSection('book-a-call')}
+                className="block w-full text-center mt-6 bg-[#d4a574] text-white py-3 px-6 rounded-full hover:bg-[#c29660] transition-all duration-300 font-light text-sm uppercase tracking-wider"
+              >
+                Book a Call
               </button>
             </div>
           </div>

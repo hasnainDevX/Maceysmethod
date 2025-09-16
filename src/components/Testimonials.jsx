@@ -59,6 +59,7 @@ export default function Testimonials() {
 
   return (
     <section
+      id="testimonials"
       ref={sectionRef}
       className="py-24 bg-gradient-to-b relative overflow-hidden"
     >

@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="lg:col-span-5">
               <h3 className="text-3xl font-light text-white mb-6" 
                   style={{ fontFamily: 'Playfair Display, serif' }}>
-                Mia <em className="italic">Camilla</em>
+                Va <em className="italic">4</em>
               </h3>
               <p className="text-[#c4b5a0] mb-8 leading-relaxed text-lg max-w-md" 
                  style={{ fontFamily: 'Inter, sans-serif' }}>
@@ -159,7 +159,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-[#c4b5a0] text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
-              &copy; 2024 Mia Camilla. All rights reserved.
+              &copy; 2024 Va4. All rights reserved.
             </p>
             
             <div className="flex space-x-6 text-sm">
