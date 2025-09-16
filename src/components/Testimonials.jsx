@@ -43,17 +43,9 @@ export default function Testimonials() {
       name: "Lisa Kyriacou Faulks",
       role: "Founder of Social Elements",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150",
+        "https://images.pexels.com/photos/5257495/pexels-photo-5257495.jpeg",
       quote:
         "Mia has been my VA for a few months now and I can definitely see the difference she has made. She is organised, a great communicator and reliable.",
-    },
-    {
-      name: "Victoria Thomas",
-      role: "Yoga Educator and Mentor",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b647?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150",
-      quote:
-        "I have been working with Mia now for quite a while and I don't know where my business would be without her. She is calm, listens extremely well and gets everything done so quickly.",
     },
   ];
 

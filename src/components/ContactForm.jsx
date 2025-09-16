@@ -293,7 +293,7 @@ export default function ContactForm() {
             {/* Professional workspace image */}
             <div className="rounded-2xl overflow-hidden border border-[#f0efed]">
               <img 
-                src="https://images.squarespace-cdn.com/content/v1/67a9c7232f6bc0581ade3c6c/d280450a-e29c-43f1-984a-4139c9939107/WEB+6.jpg?format=1500w" 
+                src="https://plus.unsplash.com/premium_photo-1674513559454-35ca6435079f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                 alt="Professional workspace with modern aesthetic" 
                 className="w-full h-[22.8rem] object-cover"
                 data-testid="img-contact"

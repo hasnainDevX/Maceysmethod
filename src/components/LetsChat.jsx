@@ -119,13 +119,13 @@ export default function LetsChat() {
               </p>
 
               <a
-                href="mailto:va@miacamilla.com?subject=I'd%20love%20to%20chat%20about%20my%20business!"
+                href="mailto:hello@miava4.com?subject=I'd%20love%20to%20chat%20about%20my%20business!"
                 className="inline-block bg-[#2d2826] text-white px-6 py-3 rounded-full 
                          hover:bg-[#1a1716] transition-colors duration-300 font-medium text-sm"
                 style={{ fontFamily: "Inter, sans-serif" }}
                 data-testid="link-email"
               >
-                va@miacamilla.com
+                hello@miava4.com
               </a>
             </div>
           </div>

@@ -33,7 +33,7 @@ export default function Footer() {
               {/* Social Links */}
               <div className="flex space-x-4">
                 <a 
-                  href="https://www.instagram.com/miacamilla.va/" 
+                  href="https://www.instagram.com/Va4" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-[#3d3530] rounded-xl flex items-center justify-center
@@ -46,7 +46,7 @@ export default function Footer() {
                 </a>
                 
                 <a 
-                  href="mailto:va@miacamilla.com" 
+                  href="mailto:hello@miava4.com" 
                   className="w-12 h-12 bg-[#3d3530] rounded-xl flex items-center justify-center
                            hover:bg-[#d4a574] transition-colors duration-300"
                   data-testid="footer-email-icon"
@@ -129,7 +129,7 @@ export default function Footer() {
               </h4>
               <div className="space-y-4">
                 <a 
-                  href="mailto:va@miacamilla.com" 
+                  href="mailto:hello@miava4.com" 
                   className="flex items-center text-[#c4b5a0] hover:text-[#d4a574] transition-colors duration-300"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                   data-testid="footer-email"
@@ -138,7 +138,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} 
                           d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  va@miacamilla.com
+                  hello@miava4.com
                 </a>
                 
                 <p className="text-[#c4b5a0]" style={{ fontFamily: 'Inter, sans-serif' }}>
