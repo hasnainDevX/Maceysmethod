@@ -1,59 +1,65 @@
 import React from "react";
 import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function About() {
   const imageRef = useRef(null);
   const textRef = useRef(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.gsap && window.ScrollTrigger) {
-      const { gsap, ScrollTrigger } = window;
+    // Register the plugin
+    gsap.registerPlugin(ScrollTrigger);
 
-      // Image animation
-      gsap.fromTo(
-        imageRef.current,
-        {
-          opacity: 0,
-          x: -50,
-          scale: 0.95,
+    // Image animation
+    gsap.fromTo(
+      imageRef.current,
+      {
+        opacity: 0,
+        x: -50,
+        scale: 0.95,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
-        {
-          opacity: 1,
-          x: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: imageRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+      }
+    );
 
-      // Text animation
-      gsap.fromTo(
-        textRef.current.children,
-        {
-          opacity: 0,
-          y: 30,
+    // Text animation
+    gsap.fromTo(
+      textRef.current.children,
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
         },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: textRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
+      }
+    );
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   const scrollToServices = () => {
