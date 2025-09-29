@@ -65,11 +65,11 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 ">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2
-            className="text-4xl lg:text-6xl font-light text-[#2d2826] mb-4 tracking-tight leading-tight"
+         <h2
+            className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            Who I've helped
+            What My Clients Say
           </h2>
         </div>
 
@@ -92,7 +92,7 @@ export default function Testimonials() {
             Ready to join these amazing women?
           </p>
           <button
-            className="bg-[#d4a574] text-white px-8 py-4 rounded-full hover:bg-[#c29660] transition-all duration-500 shadow-xl hover:shadow-xl font-light text-base uppercase group "
+            className="bg-sage text-white px-8 py-4 rounded-full hover:bg-mint transition-all duration-500 shadow-xl hover:shadow-xl font-light text-base uppercase group "
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             <span className="transition-all duration-300">

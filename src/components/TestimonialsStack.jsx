@@ -79,21 +79,40 @@ export const InfiniteMovingCards = ({
         >
           {items.map((item, idx) => (
             <li
-              className="group relative w-[380px] max-w-full shrink-0 rounded-3xl bg-gradient-to-br from-white via-pink-50/40 to-rose-50/60 backdrop-blur-sm border border-pink-200/50 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 px-8 py-8 md:w-[420px]"
+              className="group relative w-[380px] max-w-full shrink-0 rounded-3xl border shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 px-8 py-8 md:w-[420px]"
               style={{
-                boxShadow: '0 10px 25px -3px rgba(219, 39, 119, 0.1), 0 4px 6px -2px rgba(219, 39, 119, 0.05)'
+                background: 'linear-gradient(to bottom right, #f2fdf8, rgba(186, 219, 206, 0.4), rgba(236, 201, 198, 0.6))',
+                borderColor: 'rgba(236, 201, 198, 0.5)',
+                backdropFilter: 'blur(4px)',
+                boxShadow: '0 10px 25px -3px rgba(107, 141, 113, 0.1), 0 4px 6px -2px rgba(107, 141, 113, 0.05)'
               }}
               key={item.name}
             >
               {/* Decorative elements */}
-              <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-pink-100/60 to-rose-100/60 rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="absolute bottom-4 left-4 w-6 h-6 bg-gradient-to-br from-purple-100/40 to-pink-100/40 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+              <div 
+                className="absolute top-4 right-4 w-12 h-12 rounded-full opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                style={{
+                  background: 'linear-gradient(to bottom right, rgba(115, 166, 147, 0.6), rgba(186, 219, 206, 0.6))'
+                }}
+              ></div>
+              <div 
+                className="absolute bottom-4 left-4 w-6 h-6 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+                style={{
+                  background: 'linear-gradient(to bottom right, rgba(107, 141, 113, 0.4), rgba(115, 166, 147, 0.4))'
+                }}
+              ></div>
               
               {/* Enhanced profile image */}
               <div className="relative mb-6 flex justify-center items-center ">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-200/40 to-rose-200/40 rounded-full blur-sm opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
+                <div 
+                  className="absolute inset-0 rounded-full blur-sm opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(to bottom right, rgba(115, 166, 147, 0.4), rgba(223, 116, 157, 0.4))'
+                  }}
+                ></div>
                 <img 
-                  className="relative h-16 w-16 rounded-full object-cover ring-3 ring-white/70 shadow-md group-hover:scale-105 transition-transform duration-300 self-center" 
+                  className="relative h-16 w-16 rounded-full object-cover ring-3 shadow-md group-hover:scale-105 transition-transform duration-300 self-center"
+                  style={{ ringColor: 'rgba(242, 253, 248, 0.7)' }}
                   src={item.image} 
                   alt={item.name} 
                 />
@@ -101,7 +120,13 @@ export const InfiniteMovingCards = ({
               
               <blockquote className="relative">
                 {/* Decorative quote mark */}
-                <div className="absolute -top-1 -left-1 text-4xl text-pink-200/50 leading-none select-none pointer-events-none" style={{ fontFamily: "'Playfair Display', serif" }}>"</div>
+                <div 
+                  className="absolute -top-1 -left-1 text-4xl leading-none select-none pointer-events-none" 
+                  style={{ 
+                    fontFamily: "'Playfair Display', serif",
+                    color: 'rgba(186, 219, 206, 0.5)'
+                  }}
+                >"</div>
                 
                 <div
                   aria-hidden="true"
@@ -109,23 +134,36 @@ export const InfiniteMovingCards = ({
                 ></div>
                 
                 <span 
-                  className="relative z-20 text-base leading-relaxed text-slate-700 block mb-6 font-light italic pl-6"
-                  style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
+                  className="relative z-20 text-base leading-relaxed block mb-6 font-light italic pl-6"
+                  style={{ 
+                    fontFamily: "'Playfair Display', 'Georgia', serif",
+                    color: '#000000'
+                  }}
                 >
                   {item.quote}
                 </span>
                 
-                <div className="relative z-20 mt-6 flex flex-row items-center border-t border-pink-100/50 pt-5">
+                <div 
+                  className="relative z-20 mt-6 flex flex-row items-center border-t pt-5"
+                  style={{ borderColor: 'rgba(236, 201, 198, 0.5)' }}
+                >
                   <span className="flex flex-col gap-1">
                     <span 
-                      className="text-lg font-medium text-slate-800 tracking-wide"
-                      style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
+                      className="text-lg font-medium tracking-wide"
+                      style={{ 
+                        fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
+                        color: '#000000'
+                      }}
                     >
                       {item.name}
                     </span>
                     <span 
-                      className="text-sm text-orange-600 font-normal uppercase tracking-wider"
-                      style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", letterSpacing: '0.05em' }}
+                      className="text-sm font-normal uppercase tracking-wider"
+                      style={{ 
+                        fontFamily: "'Inter', 'Helvetica Neue', sans-serif", 
+                        letterSpacing: '0.05em',
+                        color: '#6b8d71'
+                      }}
                     >
                       {item.role}
                     </span>
@@ -133,7 +171,12 @@ export const InfiniteMovingCards = ({
                 </div>
                 
                 {/* Decorative accent line */}
-                <div className="absolute bottom-0 right-0 w-16 h-0.5 bg-gradient-to-r from-pink-300/60 via-rose-300/60 to-purple-300/60 rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-300"></div>
+                <div 
+                  className="absolute bottom-0 right-0 w-16 h-0.5 rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-300"
+                  style={{
+                    background: 'linear-gradient(to right, rgba(115, 166, 147, 0.6), rgba(223, 116, 157, 0.6), rgba(186, 219, 206, 0.6))'
+                  }}
+                ></div>
               </blockquote>
             </li>
           ))}

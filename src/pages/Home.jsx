@@ -12,6 +12,8 @@ import InstagramFeed from '../components/InstagramFeed';
 import Footer from '../components/Footer';
 import CalendyWidget from '../components/CalendyWidget';
 import Testimonials from '../components/Testimonials';
+import ModernMarquee from '../components/ui/Marquee';
+
 
 export default function Home() {
   useEffect(() => {
@@ -92,17 +94,18 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <ModernMarquee />
         <About />
         <Services />
         <HowIHelp />
         {/* <TestimonialsStack /> */}
         <Testimonials />
-        <LetsChat />
+        {/* <LetsChat /> */}
         <CalendyWidget/>
-        <ContactForm />
-        <InstagramFeed />
+        {/* <ContactForm /> */}
+        {/* <InstagramFeed /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

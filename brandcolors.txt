@@ -1,0 +1,7 @@
+   - Black (#000000)  
+   - Sage Green (#6b8d71)  
+   - Mint Green (#73a693)  
+   - Rose Pink (#df749d)  
+   - Blush Pink (#ecc9c6)  
+   - Soft Green (#badbce)  
+   - Off White (#f2fdf8)

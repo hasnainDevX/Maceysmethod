@@ -31,8 +31,8 @@ export default function Header() {
     <header 
       className={`sticky top-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-[#fefcf9]/95 backdrop-blur-md shadow-sm border-b border-[#f0ede8]' 
-          : 'bg-[#fefcf9]/90 backdrop-blur-sm'
+          ? 'bg-off-white/95 backdrop-blur-md shadow-sm border-b border-soft' 
+          : 'bg-white backdrop-blur-sm'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -40,11 +40,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 
-              className="text-2xl lg:text-3xl font-light tracking-wide text-[#2d2826] cursor-pointer hover:text-[#d4a574] transition-all duration-300"
+              className="text-2xl lg:text-3xl font-light tracking-wide text-app-black cursor-pointer hover:text-sage transition-all duration-300"
               onClick={() => scrollToSection('home')}
               style={{ fontFamily: 'Georgia, serif' }}
             >
-              Va4 
+              Macey's Methods
             </h1>
           </div>
           
@@ -52,31 +52,31 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-12">
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
+              className="text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
+              className="text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('testimonials')}
-              className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
+              className="text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
               Testimonials
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase"
+              className="text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase"
             >
               Contact
             </button>
             <button 
               onClick={() => scrollToSection('book-a-call')}
-              className="bg-[#d4a574] text-white px-6 py-2.5 rounded-full hover:bg-[#c29660] transition-all duration-300 font-light text-sm uppercase tracking-wider"
+              className="bg-mint text-off-white px-6 py-2.5 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-wider"
             >
               Book a Call
             </button>
@@ -86,7 +86,7 @@ export default function Header() {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 p-2"
+              className="text-app-black hover:text-sage transition-all duration-300 p-2"
             >
               {isMobileMenuOpen ? (
                 <div className="w-6 h-6 flex items-center justify-center">
@@ -108,35 +108,35 @@ export default function Header() {
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-[#f0ede8] bg-[#fefcf9]/98 backdrop-blur-md">
+          <div className="md:hidden border-t border-soft bg-off-white/98 backdrop-blur-md">
             <div className="px-4 py-6 space-y-4">
               <button 
                 onClick={() => scrollToSection('about')}
-                className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
+                className="block w-full text-left py-3 text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-soft last:border-b-0"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
+                className="block w-full text-left py-3 text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-soft last:border-b-0"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('testimonials')}
-                className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
+                className="block w-full text-left py-3 text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-soft last:border-b-0"
               >
                 Testimonials
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block w-full text-left py-3 text-[#2d2826] hover:text-[#d4a574] transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-[#f0ede8] last:border-b-0"
+                className="block w-full text-left py-3 text-app-black hover:text-sage transition-all duration-300 font-light tracking-wider text-sm uppercase border-b border-soft last:border-b-0"
               >
                 Contact
               </button>
               <button 
                 onClick={() => scrollToSection('book-a-call')}
-                className="block w-full text-center mt-6 bg-[#d4a574] text-white py-3 px-6 rounded-full hover:bg-[#c29660] transition-all duration-300 font-light text-sm uppercase tracking-wider"
+                className="block w-full text-center mt-6 bg-mint text-off-white py-3 px-6 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-wider"
               >
                 Book a Call
               </button>

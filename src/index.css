@@ -1,7 +1,16 @@
 @import "tailwindcss";
-
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-sage: #6b8d71;
+  --color-mint: #73a693;
+  --color-rose: #df749d;
+  --color-blush: #ecc9c6;
+  --color-soft: #badbce;
+  --color-off-white: #f2fdf8;
+  --color-app-black: #000000;
+}
 
 body {
   opacity: 1 !important;
@@ -21,20 +30,31 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background-color: #2d2826;
+  background-color: var(--color-sage);
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4a574;
+  background: var(--color-blush);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #b8935f;
+  background: var(--color-rose);
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
+/* CSS Pendulum Animation */
+@keyframes pendulum {
+  0% {
+    transform: rotate(-15deg);
+  }
+}
+
+.pendulum-image {
+  transform: rotate(-15deg);
+}
+
 
 .calendy-inline-widget {
   min-width: 320px;
@@ -55,7 +75,8 @@ html {
 }
 
 .bgimg{
-  background-image: url('/vabg.jpg');
+  position: relative;
+  /* background-image: url('/assets/clientimage1.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
