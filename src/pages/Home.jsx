@@ -102,7 +102,7 @@ export default function Home() {
         <Testimonials />
         <LetsChat />
         <CalendyWidget/>
-        {/* <ContactForm /> */}
+        <ContactForm />
         {/* <InstagramFeed /> */}
       </main>
       {/* <Footer /> */}
