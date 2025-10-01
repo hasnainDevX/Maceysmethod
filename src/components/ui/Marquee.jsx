@@ -52,28 +52,28 @@ export default function ModernMarquee() {
 
         /* Fast animation for mobile screens */
         .animate-marquee-mobile {
-          animation: marquee 15s linear infinite;
+          animation: marquee 10s linear infinite;
         }
 
         /* Normal animation for medium screens and up */
         .animate-marquee-desktop {
-          animation: marquee 30s linear infinite;
+          animation: marquee 20s linear infinite;
         }
 
         .animate-marquee-reverse {
-          animation: marquee-reverse 25s linear infinite;
+          animation: marquee-reverse 15s linear infinite;
         }
 
         /* Media query to ensure proper animation switching */
         @media (max-width: 767px) {
           .animate-marquee-desktop {
-            animation: marquee 15s linear infinite;
+            animation: marquee 10s linear infinite;
           }
         }
 
         @media (min-width: 768px) {
           .animate-marquee-mobile {
-            animation: marquee 30s linear infinite;
+            animation: marquee 15s linear infinite;
           }
         }
       `}</style>

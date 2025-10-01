@@ -104,7 +104,7 @@ export default function About() {
   return (
     <section id="about" className="py-20 bg-white relative">
       <div className="mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12  items-center">
           <div className="imgcontainer flex justify-start h-full scale-90">
             {/* Left Profile Image */}
             <div className="lg:col-span-1" ref={imageRef1}>
@@ -112,7 +112,7 @@ export default function About() {
                 <img
                   src={about2image}
                   alt="Professional female virtual assistant in UK"
-                  className="w-full transform hover:scale-[1.02] transition-all duration-500"
+                  className="w-full h-full 2xl:scale-110 transform 2xl:hover:scale-[1.05] hover:scale-[1.02] transition-all duration-500"
                 />
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function About() {
 
             <br />
             <p
-              className="text-rose text-lg font-light italic mb-6 tracking-wide xl:text-xl"
+              className="text-rose/60 text-lg 2xl:text-xl font-light italic mb-6 tracking-wide xl:text-xl"
               style={{ fontFamily: '"Dancing Script", cursive' }}
             >
               Hey, welcome in!
@@ -134,7 +134,7 @@ export default function About() {
 
             {/* Main heading */}
             <h2
-              className="text-5xl lg:text-7xl 2xl:text-8xl font-light text-sage mb-8 tracking-tight leading-none"
+              className="text-5xl lg:text-7xl 2xl:text-8xl font-light text-rose mb-8 tracking-tight leading-none"
               style={{ fontFamily: '"Playfair Display", serif' }}
             >
               I'm Macey
@@ -143,7 +143,7 @@ export default function About() {
             {/* Description paragraphs */}
             <div className="space-y-6 mb-10">
               <p
-                className="text-sm lg:text-base 2xl:text-xl text-gray-600 leading-relaxed font-light max-w-sm mx-auto"
+                className="text-sm lg:text-base 2xl:text-2xl text-gray-600 leading-relaxed font-light mx-auto"
                 style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 The organised, proactive support behind busy entrepreneurs and
@@ -153,7 +153,7 @@ export default function About() {
               </p>
 
               <p
-                className="text-sm lg:text-base 2xl:text-xl text-gray-600 leading-relaxed font-light max-w-sm mx-auto"
+                className="text-sm lg:text-base 2xl:text-2xl text-gray-600 leading-relaxed font-light max-w-sm mx-auto"
                 style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 From inboxes to systems, I handle the behind-the-scenes so you
@@ -164,14 +164,14 @@ export default function About() {
             {/* Learn more button */}
             <button
               onClick={scrollToServices}
-              className="bg-mint text-white px-8 py-3 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-widest"
+              className="bg-mint text-white px-8 py-3 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-widest 2xl:px-12 2xl:py-4 2xl:text-lg shadow-lg hover:shadow-xl"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Learn more
             </button>
           </div>
 
-          <div className="imgcontainer relative flex justify-end h-full scale-90">
+          <div className="imgcontainer relative flex justify-end h-full scale-90 2xl:scale-100">
             {/* Right Decorative Image */}
             <div className="lg:col-span-1 hidden lg:block self-end w-full" ref={imageRef2}>
               <div className="bg-off-white p-1 lg:p-2 scale-90">

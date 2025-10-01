@@ -1,43 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function LetsChat() {
+  const [emailCopied, setEmailCopied] = useState(false);
+
   const handleBookCall = () => {
-    // Use the same URL as the inline widget
     window.open("https://calendly.com/codebyte-wd/30min", "_blank");
   };
 
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("maceycherrill27@gmail.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
+
   return (
-    <section id="book-a-call" className="py-20 bg-[#faf9f7]" data-testid="section-lets-chat">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="book-a-call" className="py-32 bg-[#f2fdf8]">
+      <div className="max-w-5xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-20">
           <h2
-            className="text-5xl md:text-6xl font-light text-[#2d2826] mb-6"
-            style={{ fontFamily: "Playfair Display, serif" }}
+            className="text-5xl md:text-7xl font-light text-[#6b8d71] mb-8 tracking-tight"
+            style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            Let's <em className="italic">Chat!</em>
+            Let's Chat
           </h2>
           <p
-            className="text-xl text-[#666] max-w-2xl mx-auto leading-relaxed"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            className="text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            I'd love to chat with you about your business needs. Book a call
-            using my Calendly below, or send me an email!
+            I'd love to hear about your business and explore how we can work together.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Calendly Booking Card */}
-          <div
-            className="bg-white p-6 rounded-2xl shadow-sm border border-[#f0efed] 
-                        hover:shadow-md transition-shadow duration-300"
-          >
-            <div className="text-center">
-              <div
-                className="w-14 h-14 bg-gradient-to-br from-[#d4a574] to-[#b8935f] 
-                            rounded-xl mx-auto mb-5 flex items-center justify-center"
-              >
+        {/* Content */}
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Left - Book Call */}
+          <div className="text-center md:text-center">
+            <div className="inline-block mb-6">
+              <div className="w-16 h-16 rounded-full bg-[#badbce] flex items-center justify-center">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="w-8 h-8 text-[#6b8d71]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -50,46 +52,50 @@ export default function LetsChat() {
                   />
                 </svg>
               </div>
-
-              <h3
-                className="text-xl font-light text-[#2d2826] mb-3"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                Book a Discovery Call
-              </h3>
-
-              <p
-                className="text-[#666] mb-5 leading-relaxed text-sm"
-                style={{ fontFamily: "Inter, sans-serif" }}
-              >
-                Schedule a complimentary 30-minute consultation to explore how
-                we can work together.
-              </p>
-
-              <button
-                onClick={handleBookCall}
-                className="bg-[#d4a574] text-white px-6 py-3 rounded-full 
-                         hover:bg-[#b8935f] transition-colors duration-300 font-medium text-sm"
-                style={{ fontFamily: "Inter, sans-serif" }}
-                data-testid="button-book-call"
-              >
-                Book Your Call
-              </button>
             </div>
+
+            <h3
+              className="text-2xl font-light text-[#000000] mb-4"
+              style={{ fontFamily: '"Playfair Display", serif' }}
+            >
+              Book a Discovery Call
+            </h3>
+
+            <p
+              className="text-gray-600 font-light leading-relaxed mb-8"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              Schedule a complimentary 30-minute consultation to discuss your goals and see if we're the right fit.
+            </p>
+
+            <button
+              onClick={handleBookCall}
+              className="group inline-flex items-center gap-2 text-[#6b8d71] font-light border-b-2 border-[#6b8d71] pb-1 hover:border-[#73a693] hover:text-[#73a693] transition-all duration-300"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              Schedule Now
+              <svg
+                className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
 
-          {/* Email Contact Card */}
-          <div
-            className="bg-white p-6 rounded-2xl shadow-sm border border-[#f0efed] 
-                        hover:shadow-md transition-shadow duration-300"
-          >
-            <div className="text-center">
-              <div
-                className="w-14 h-14 bg-gradient-to-br from-[#2d2826] to-[#1a1716] 
-                            rounded-xl mx-auto mb-5 flex items-center justify-center"
-              >
+          {/* Right - Email */}
+          <div className="text-center md:text-center">
+            <div className="inline-block mb-6">
+              <div className="w-16 h-16 rounded-full bg-[#ecc9c6] flex items-center justify-center">
                 <svg
-                  className="w-7 h-7 text-white"
+                  className="w-8 h-8 text-[#df749d]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -102,31 +108,72 @@ export default function LetsChat() {
                   />
                 </svg>
               </div>
+            </div>
 
-              <h3
-                className="text-xl font-light text-[#2d2826] mb-3"
-                style={{ fontFamily: "Playfair Display, serif" }}
-              >
-                Send an Email
-              </h3>
+            <h3
+              className="text-2xl font-light text-[#000000] mb-4"
+              style={{ fontFamily: '"Playfair Display", serif' }}
+            >
+              Send an Email
+            </h3>
 
-              <p
-                className="text-[#666] mb-5 leading-relaxed text-sm"
-                style={{ fontFamily: "Inter, sans-serif" }}
-              >
-                Prefer to reach out directly? I'd love to hear from you and will
-                respond within 24 hours.
-              </p>
+            <p
+              className="text-gray-600 font-light leading-relaxed mb-8"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              Prefer email? Drop me a message and I'll respond within 24 hours.
+            </p>
 
+            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-center">
               <a
-                href="mailto:hello@miava4.com?subject=I'd%20love%20to%20chat%20about%20my%20business!"
-                className="inline-block bg-[#2d2826] text-white px-6 py-3 rounded-full 
-                         hover:bg-[#1a1716] transition-colors duration-300 font-medium text-sm"
-                style={{ fontFamily: "Inter, sans-serif" }}
-                data-testid="link-email"
+                href="mailto:maceycherrill27@gmail.com"
+                className="group inline-flex items-center gap-2 text-[#df749d] font-light border-b-2 border-[#df749d] pb-1 hover:border-[#ecc9c6] hover:text-[#ecc9c6] transition-all duration-300"
+                style={{ fontFamily: '"Inter", sans-serif' }}
               >
-                hello@miava4.com
+                maceycherrill27@gmail.com
               </a>
+
+              <button
+                onClick={handleCopyEmail}
+                className="group relative inline-flex items-center gap-2 text-gray-500 hover:text-[#df749d] transition-colors duration-300"
+                style={{ fontFamily: '"Inter", sans-serif' }}
+              >
+                {emailCopied ? (
+                  <>
+                    <svg
+                      className="w-5 h-5 text-[#6b8d71]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span className="text-sm text-[#6b8d71]">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="text-sm">Copy</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </div>

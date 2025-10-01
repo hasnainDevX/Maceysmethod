@@ -100,7 +100,7 @@ export default function Home() {
         <HowIHelp />
         {/* <TestimonialsStack /> */}
         <Testimonials />
-        {/* <LetsChat /> */}
+        <LetsChat />
         <CalendyWidget/>
         {/* <ContactForm /> */}
         {/* <InstagramFeed /> */}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { InfiniteMovingCards } from "./TestimonialsStack";
+import elem1 from "../assets/telement1.png";
+import elem2 from "../assets/telem2.png";
 
 export default function Testimonials() {
   const sectionRef = useRef(null);
@@ -53,7 +55,7 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="py-24 bg-gradient-to-b relative overflow-hidden"
+      className="py-16 bg-gradient-to- relative overflow-hidden"
     >
       {/* Subtle decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#d4a574]/5 rounded-full blur-3xl animate-pulse"></div>
@@ -62,20 +64,36 @@ export default function Testimonials() {
         style={{ animationDelay: "2s" }}
       ></div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 ">
+      <div className="max-w-7xl 2xl:max-w-[120rem] mx-auto px-6 lg:px-12 relative z-10 ">
         {/* Section Header */}
         <div className="text-center mb-12">
-         <h2
+          <h2
             className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            What My Clients Say
+            Testimonials
           </h2>
+           <p
+            className="text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            Hear from some of the clients I've had the pleasure of working with.
+          </p>
         </div>
 
-        {/* Testimonials Grid */}
+        <img
+          className="hidden md:block absolute top-[15%] left-6 -rotate-12 transform -translate-y-1/2 w-[10rem] lg:w-[10rem] opacity-80"
+          src={elem1}
+          alt="element"
+        />
+        <img
+          className="hidden md:block absolute top-[15%] right-6 rotate-12 transform -translate-y-1/2 w-[8rem] lg:w-[8rem] opacity-80"
+          src={elem2}
+          alt="element"
+        />
 
-        <div className="h-[24rem] rounded-md flex flex-col antialiased dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+        {/* Testimonials Grid */}
+        <div className="h-[24rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
           <InfiniteMovingCards
             items={testimonials}
             direction="right"

@@ -83,12 +83,12 @@ export default function HowIHelp() {
           >
             Choose Your Package
           </h2>
-          <p
+          {/* <p
             className="text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             Tailored support packages designed to grow with your business needs
-          </p>
+          </p> */}
         </div>
 
         {/* Packages Grid */}

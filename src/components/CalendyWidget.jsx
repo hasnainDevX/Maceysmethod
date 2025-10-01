@@ -5,19 +5,19 @@ const CalendyWidget = () => {
   return (
     <>
       {/* Calendly Widget Embed */}
-      <div className="bg-[#faf9f7]">
-        <div className="text-center">
-          <h3
-            className="text-5xl font-light text-[#2d2826] mb-2"
-            style={{ fontFamily: "Playfair Display, serif" }}
+      <div className="bg-[#faf9f7] py-20 px-6 lg:px-12  mx-auto">
+         <div className="text-center mb-12">
+          <h2
+            className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
+            style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            Schedule Directly Below
-          </h3>
-          <p
-            className="text-[#666]"
-            style={{ fontFamily: "Inter, sans-serif" }}
+            Schedule Your Free Call Here
+          </h2>
+           <p
+            className="text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            Pick a time that works best for you
+             Pick a time that works best for you
           </p>
         </div>
 

@@ -112,7 +112,7 @@ export default function Hero() {
             <span className="text-soft font-semibold my-1 lg:my-2">
                with behind the scenes 
             </span>
-            <span className="font-semibold">support</span>
+            <span className="font-semibold"> support</span>
           </h1>
 
           <div className="relative mb-8 lg:mb-12">
