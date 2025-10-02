@@ -218,7 +218,7 @@ export default function ContactForm() {
                       onBlur={handleBlur}
                       className={getInputClassName("lastName")}
                       style={{ fontFamily: "Inter, sans-serif" }}
-                      placeholder="Doe"
+                      placeholder="Last Name"
                       data-testid="input-last-name"
                     />
                     {touched.lastName && !errors.lastName && formData.lastName && (
@@ -228,7 +228,7 @@ export default function ContactForm() {
                     )}
                   </div>
                   {touched.lastName && errors.lastName && (
-                    <p className="mt-1.5 text-sm text-red-500" style={{ fontFamily: "Inter, sans-serif" }}>
+                    <p className="mt-1.5 text-sm text-red-300" style={{ fontFamily: "Inter, sans-serif" }}>
                       {errors.lastName}
                     </p>
                   )}
@@ -262,7 +262,7 @@ export default function ContactForm() {
                   )}
                 </div>
                 {touched.email && errors.email && (
-                  <p className="mt-1.5 text-sm text-red-500" style={{ fontFamily: "Inter, sans-serif" }}>
+                  <p className="mt-1.5 text-sm text-red-300" style={{ fontFamily: "Inter, sans-serif" }}>
                     {errors.email}
                   </p>
                 )}
@@ -295,7 +295,7 @@ export default function ContactForm() {
                   )}
                 </div>
                 {touched.subject && errors.subject && (
-                  <p className="mt-1.5 text-sm text-red-500" style={{ fontFamily: "Inter, sans-serif" }}>
+                  <p className="mt-1.5 text-sm text-red-300" style={{ fontFamily: "Inter, sans-serif" }}>
                     {errors.subject}
                   </p>
                 )}
@@ -329,7 +329,7 @@ export default function ContactForm() {
                   ></textarea>
                 </div>
                 {touched.message && errors.message && (
-                  <p className="mt-1.5 text-sm text-red-500" style={{ fontFamily: "Inter, sans-serif" }}>
+                  <p className="mt-1.5 text-sm text-red-300" style={{ fontFamily: "Inter, sans-serif" }}>
                     {errors.message}
                   </p>
                 )}
@@ -371,7 +371,7 @@ export default function ContactForm() {
 
               {submitStatus === "error" && (
                 <div
-                  className="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-800"
+                  className="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-500"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   There was an error sending your message. Please try again or email me directly.

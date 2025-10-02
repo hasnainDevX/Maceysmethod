@@ -5,7 +5,7 @@ const CalendyWidget = () => {
   return (
     <>
       {/* Calendly Widget Embed */}
-      <div className="bg-[#faf9f7] py-20 px-6 lg:px-12  mx-auto">
+      <div className="bg-off-white/40 py-20 px-6 lg:px-12  mx-auto">
          <div className="text-center mb-12">
           <h2
             className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"

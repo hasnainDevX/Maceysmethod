@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
-import HowIHelp from '../components/HowIHelp';
+import HowIHelping from '../components/HowIHelping';
 // import Testimonials from '../components/Testimonials';
 import LetsChat from '../components/LetsChat';
 import ContactForm from '../components/ContactForm';
@@ -97,7 +97,7 @@ export default function Home() {
         <ModernMarquee />
         <About />
         <Services />
-        <HowIHelp />
+        <HowIHelping />
         {/* <TestimonialsStack /> */}
         <Testimonials />
         <LetsChat />
