@@ -1,32 +1,103 @@
-import React from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
+import { Instagram, Linkedin } from "lucide-react";
 
 export default function InstagramFeed() {
-  const instagramPosts = [
-    {
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400",
-      alt: "Behind the scenes virtual assistant workspace setup"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1542744094-24638eff58bb?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400",
-      alt: "Motivational quote about productivity and business growth"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400",
-      alt: "Professional networking event photo"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400",
-      alt: "Personal branding photoshoot professional portrait"
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMJA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400",
-      alt: "Virtual assistant introduction and welcome message"
-    }
-  ];
+  const [imageError, setImageError] = useState({});
+
+  useEffect(() => {
+    // Inject Elfsight script once
+    const script = document.createElement("script");
+    script.src = "https://elfsightcdn.com/platform.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
-    <section className="py-20 bg-white" data-testid="section-instagram">
-      
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-white via-gray-50/20 to-white relative overflow-hidden">
+      {/* Subtle background decoration */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-mint rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-rose rounded-full filter blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-16 relative">
+        {/* Section Header */}
+        <div className="text-center mb-16 lg:mb-20">
+          <div className="inline-block mb-6 relative">
+            <span
+              className="text-rose text-xs font-semibold tracking-[0.4em] uppercase relative z-10"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              Stay Connected
+            </span>
+            <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose/30 to-transparent"></div>
+          </div>
+          
+          <h2
+            className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
+            style={{ fontFamily: '"Playfair Display", serif' }}
+          >
+            Follow My Journey
+          </h2>
+          
+          <p
+            className="text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            Daily insights, behind-the-scenes content, and business tips to help you grow
+          </p>
+        </div>
+
+        {/* Instagram Feed from Elfsight */}
+        <div className="mb-16">
+          <div
+            className="elfsight-app-1daf5062-3d4e-4c7c-8c79-9c960b2a88e6"
+            data-elfsight-app-lazy
+          ></div>
+        </div>
+
+        {/* CTA Note */}
+        <div className="text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-500 font-light italic"
+            style={{ fontFamily: '"Inter", sans-serif' }}>
+            Join our community of over 1,000 entrepreneurs and business owners
+          </p>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="https://instagram.com/maceys.method"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-gradient-to-r from-sage to-sage/90 text-white px-10 py-4 rounded-2xl 
+              hover:from-sage/90 hover:to-sage transition-all duration-300 font-medium text-sm 
+              uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center gap-3"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            <Instagram className="w-4 h-4" />
+            <span>Follow on Instagram</span>
+          </a>
+
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group text-sage font-medium text-sm uppercase tracking-wider 
+              hover:text-rose transition-all duration-300 flex items-center gap-2"
+            style={{ fontFamily: '"Inter", sans-serif' }}
+          >
+            <Linkedin className="w-4 h-4" />
+            <span>Connect on LinkedIn</span>
+            <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

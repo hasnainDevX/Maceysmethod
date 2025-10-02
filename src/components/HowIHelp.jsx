@@ -201,6 +201,7 @@ export default function HowIHelp() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              
               <button
                 className="bg-mint text-white px-10 py-4 rounded-full hover:bg-sage transition-all duration-300 font-medium text-sm uppercase tracking-widest shadow-sm hover:shadow-md"
                 style={{ fontFamily: '"Inter", sans-serif' }}

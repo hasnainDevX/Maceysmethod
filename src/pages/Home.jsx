@@ -90,7 +90,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-hidden">
       <Header />
       <main>
         <Hero />
@@ -103,9 +103,9 @@ export default function Home() {
         <LetsChat />
         <CalendyWidget/>
         <ContactForm />
-        {/* <InstagramFeed /> */}
+        <InstagramFeed />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
