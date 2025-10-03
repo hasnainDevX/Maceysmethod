@@ -3,54 +3,12 @@ import { useEffect, useRef } from "react";
 import { InfiniteMovingCards } from "./TestimonialsStack";
 import elem1 from "../assets/telement1.png";
 import elem2 from "../assets/telem2.png";
+import { testimonials } from "../../data.js";
+import { Link } from "react-scroll";
 
 export default function Testimonials() {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
-
-  const testimonials = [
-    {
-      name: "Beth Hocking",
-      role: "Personal Brand Strategist",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150",
-      quote:
-        "Mia has been an absolutely godsend! She's so easy to work with, a brilliant communicator and uses her initiative to learn anything new in double quick time.",
-    },
-    {
-      name: "Emma Cowan",
-      role: "Founder of Team Wellness",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150",
-      quote:
-        "Mia's knowledge, guidance and expertise is proving invaluable to me as I set up my business. Very professional, flexible, and always willing to go the extra mile.",
-    },
-    {
-      name: "Ruth Gilbey",
-      role: "Business Development Coach",
-      image:
-        "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150",
-      quote:
-        "I'm thrilled to recommend Mia, who has been an exceptional addition to my team. She quickly grasped my business goals and nailed the brief from day one.",
-    },
-    {
-      name: "Beth Kirk",
-      role: "LinkedIn Marketer & Trainer",
-      image:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150",
-      quote:
-        "I have been working with Mia for a few months now and really seeing the benefit of her support in my business. She's been invaluable with content and analytics.",
-    },
-    {
-      name: "Lisa Kyriacou Faulks",
-      role: "Founder of Social Elements",
-      image:
-        "https://images.pexels.com/photos/5257495/pexels-photo-5257495.jpeg",
-      quote:
-        "Mia has been my VA for a few months now and I can definitely see the difference she has made. She is organised, a great communicator and reliable.",
-    },
-  ];
-
   return (
     <section
       id="testimonials"
@@ -109,14 +67,16 @@ export default function Testimonials() {
           >
             Ready to join these amazing women?
           </p>
+          <Link to="contact" smooth={true} duration={500}>
           <button
-            className="bg-sage text-white px-8 py-4 rounded-full hover:bg-mint transition-all duration-500 shadow-xl hover:shadow-xl font-light text-base uppercase group "
+            className="bg-sage text-white px-8 py-4 rounded-full hover:bg-mint transition-all duration-500 shadow-xl hover:shadow-xl font-light text-base uppercase group cursor-pointer"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             <span className="transition-all duration-300">
               Start Your Journey
             </span>
           </button>
+          </Link>
         </div>
       </div>
     </section>

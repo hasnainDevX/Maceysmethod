@@ -385,7 +385,7 @@ export default function ContactForm() {
                          hover:bg-[#6b8d71] transition-all duration-300 
                          disabled:opacity-50 disabled:cursor-not-allowed
                          inline-flex items-center justify-center gap-2
-                         hover:shadow-lg"
+                         hover:shadow-lg cursor-pointer"
                 style={{ fontFamily: "Inter, sans-serif" }}
                 data-testid="button-submit"
               >
@@ -417,7 +417,7 @@ export default function ContactForm() {
           </div>
 
           {/* Contact Info Section - Redesigned */}
-          <div className="space-y-12 lg:pt-8 px-6 lg:px-0">
+          <div className="space-y-12 lg:pt-8 px-8 lg:px-0">
             <div>
               <h3
                 className="text-3xl font-light text-[#000000] mb-6"

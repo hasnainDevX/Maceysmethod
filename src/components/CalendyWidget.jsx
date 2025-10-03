@@ -5,7 +5,7 @@ const CalendyWidget = () => {
   return (
     <>
       {/* Calendly Widget Embed */}
-      <div className="bg-off-white/40 py-20 px-6 lg:px-12  mx-auto">
+      <div id="schedule-a-call" className="bg-off-white/40 py-20 px-6 lg:px-12  mx-auto">
          <div className="text-center mb-12">
           <h2
             className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
@@ -26,7 +26,7 @@ const CalendyWidget = () => {
           <InlineWidget
             className=""
             pageSettings={{ hideGdprBanner: true, hideEventTypeDetails: false }}
-            url="https://calendly.com/codebyte-wd/30min?primary_color=d4a574"
+            url="https://calendly.com/maceycherrill27/30min?primary_color=6b8d71"
             styles={{ minWidth: "100%", height: "700px" }}
           />
         </div>

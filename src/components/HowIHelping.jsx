@@ -1,26 +1,103 @@
 import React from "react";
-import {
-    ArrowRight,
-    Star
-} from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { useState } from "react";
+import element1 from "../assets/new8.png";
+import element2 from "../assets/new4.png";
 import { categories } from "../../data.js";
+import { Link } from "react-scroll";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+
+// Register plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HowIHelp() {
   const [activeCategory, setActiveCategory] = useState("social");
   const currentPackages = categories[activeCategory];
 
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const tabsRef = useRef(null);
+  const cardsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    // Header animation
+    gsap.fromTo(
+      headerRef.current,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+
+    // Tabs animation
+    gsap.fromTo(
+      tabsRef.current?.children || [],
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: tabsRef.current,
+          start: "top 80%",
+        },
+      }
+    );
+
+    // Cards animation
+    gsap.fromTo(
+      cardsRef.current?.children || [],
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.7,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: cardsRef.current,
+          start: "top 75%",
+        },
+      }
+    );
+  }, [activeCategory]); // Re-run when category changes
+
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden">
+    <section
+      id="pricing"
+      className="py-20 lg:py-32 bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden"
+    >
       {/* Subtle background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-mint rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose rounded-full filter blur-3xl"></div>
       </div>
-
       <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-16 relative">
+        <img
+          className="block absolute top-[14%] left-0 transform -translate-y-1/2 w-[6rem] lg:w-[8rem] opacity-80"
+          src={element1}
+          alt="element"
+        />
+        <img
+          className="block absolute top-[14%] right-0 transform -translate-y-1/2 w-[6rem] lg:w-[8rem] opacity-80"
+          src={element2}
+          alt="element"
+        />
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
+        <div ref={headerRef} className="text-center mb-12 lg:mb-16">
           <div className="inline-block mb-6 relative">
             <span
               className="text-rose text-xs font-semibold tracking-[0.4em] uppercase relative z-10"
@@ -38,7 +115,7 @@ export default function HowIHelp() {
           </h2>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mt-10">
+          <div ref={tabsRef} className="flex flex-wrap justify-center gap-3 mt-10">
             {Object.entries(categories).map(([key, category]) => {
               const Icon = category.icon;
               return (
@@ -98,7 +175,7 @@ export default function HowIHelp() {
         </div> */}
 
         {/* Packages Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-16">
+        <div  ref={cardsRef} className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-16">
           {currentPackages.packages.map((pkg, index) => (
             <div
               key={index}
@@ -194,16 +271,18 @@ export default function HowIHelp() {
                   </div>
 
                   {/* CTA Button */}
-                  <button
-                    className={`w-full py-4 px-6 rounded-full font-medium text-sm uppercase tracking-widest transition-all duration-300 ${
-                      pkg.popular
-                        ? "bg-rose text-white hover:bg-sage shadow-md hover:shadow-lg"
-                        : "bg-mint text-white hover:bg-sage shadow-md hover:shadow-lg"
-                    }`}
-                    style={{ fontFamily: '"Inter", sans-serif' }}
-                  >
-                    Get Started
-                  </button>
+                  <Link to="contact" smooth={true} duration={500}>
+                    <button
+                      className={`w-full py-4 px-6 rounded-full font-medium text-sm uppercase tracking-widest transition-all duration-300 cursor-pointer ${
+                        pkg.popular
+                          ? "bg-rose text-white hover:bg-sage shadow-md hover:shadow-lg"
+                          : "bg-mint text-white hover:bg-sage shadow-md hover:shadow-lg"
+                      }`}
+                      style={{ fontFamily: '"Inter", sans-serif' }}
+                    >
+                      Get Started
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -224,23 +303,27 @@ export default function HowIHelp() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                className="group bg-sage text-white px-10 py-4 rounded-2xl hover:bg-sage/90 transition-all duration-300 
-                  font-medium text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center gap-3"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                <span>Schedule Discovery Call</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              <Link to="schedule-a-call" smooth={true} duration={500}>
+                <button
+                  className="group bg-sage text-white px-10 py-4 rounded-2xl hover:bg-sage/90 transition-all duration-300 
+                  font-medium text-sm uppercase tracking-wider shadow-lg hover:shadow-xl flex items-center gap-3 cursor-pointer"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
+                  <span>Schedule Discovery Call</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </Link>
 
-              <button
-                className="text-sage font-medium text-sm uppercase tracking-wider hover:text-rose 
-                  transition-colors duration-300 flex items-center gap-2 group"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                <span>Custom Package</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+              <Link to="contact" smooth={true} duration={500}>
+                <button
+                  className="text-sage font-medium text-sm uppercase tracking-wider hover:text-rose 
+                  transition-colors duration-300 flex items-center gap-2 group cursor-pointer"
+                  style={{ fontFamily: '"Inter", sans-serif' }}
+                >
+                  <span>Custom Package</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

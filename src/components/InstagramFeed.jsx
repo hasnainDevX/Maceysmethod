@@ -85,7 +85,7 @@ export default function InstagramFeed() {
           </a>
 
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/macey-cherrill-a5b9092aa"
             target="_blank"
             rel="noopener noreferrer"
             className="group text-sage font-medium text-sm uppercase tracking-wider 

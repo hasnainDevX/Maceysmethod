@@ -7,7 +7,7 @@ export default function ModernMarquee() {
   ];
 
   return (
-    <section className="py-20 overflow-hidden relative">
+    <section className="py-20 pb-12 overflow-hidden relative">
       {/* Main Marquee */}
       <div className="flex animate-marquee-mobile md:animate-marquee-desktop whitespace-nowrap">
         {marqueeTexts.map((text, index) => (

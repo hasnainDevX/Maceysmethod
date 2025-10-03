@@ -5,7 +5,6 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Services from '../components/Services';
 import HowIHelping from '../components/HowIHelping';
-// import Testimonials from '../components/Testimonials';
 import LetsChat from '../components/LetsChat';
 import ContactForm from '../components/ContactForm';
 import InstagramFeed from '../components/InstagramFeed';
@@ -98,7 +97,6 @@ export default function Home() {
         <About />
         <Services />
         <HowIHelping />
-        {/* <TestimonialsStack /> */}
         <Testimonials />
         <LetsChat />
         <CalendyWidget/>

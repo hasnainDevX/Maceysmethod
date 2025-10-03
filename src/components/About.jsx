@@ -164,7 +164,7 @@ export default function About() {
             {/* Learn more button */}
             <button
               onClick={scrollToServices}
-              className="bg-mint text-white px-8 py-3 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-widest 2xl:px-12 2xl:py-4 2xl:text-lg shadow-lg hover:shadow-xl"
+              className="bg-mint text-white px-8 py-3 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-widest 2xl:px-12 2xl:py-4 2xl:text-lg shadow-lg hover:shadow-xl cursor-pointer"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Learn more

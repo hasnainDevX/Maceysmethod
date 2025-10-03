@@ -70,7 +70,7 @@ export default function LetsChat() {
 
             <button
               onClick={handleBookCall}
-              className="group inline-flex items-center gap-2 text-[#6b8d71] font-light border-b-2 border-[#6b8d71] pb-1 hover:border-[#73a693] hover:text-[#73a693] transition-all duration-300"
+              className="group inline-flex items-center gap-2 text-[#6b8d71] font-light border-b-2 border-[#6b8d71] pb-1 hover:border-[#73a693] hover:text-[#73a693] transition-all duration-300 cursor-pointer"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
               Schedule Now
@@ -124,7 +124,7 @@ export default function LetsChat() {
               Prefer email? Drop me a message and I'll respond within 24 hours.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-center">
+            <div className="flex flex-row gap-3 justify-center md:justify-center" onClick={handleCopyEmail}>
               <a
                 href="mailto:maceycherrill27@gmail.com"
                 className="group inline-flex items-center gap-2 text-[#df749d] font-light border-b-2 border-[#df749d] pb-1 hover:border-[#ecc9c6] hover:text-[#ecc9c6] transition-all duration-300"
@@ -134,7 +134,6 @@ export default function LetsChat() {
               </a>
 
               <button
-                onClick={handleCopyEmail}
                 className="group relative inline-flex items-center gap-2 text-gray-500 hover:text-[#df749d] transition-colors duration-300"
                 style={{ fontFamily: '"Inter", sans-serif' }}
               >

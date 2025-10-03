@@ -98,7 +98,7 @@ export const InfiniteMovingCards = ({
                 </div>
                 
                 <span 
-                  className="relative z-20 text-base leading-relaxed block mb-8 font-normal"
+                  className="relative z-20 text-sm md:text-base leading-relaxed block mb-8 font-normal"
                   style={{ 
                     fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
                     color: '#000000'

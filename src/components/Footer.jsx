@@ -147,7 +147,7 @@ export default function Footer() {
               </h4>
               <div className="grid gap-4">
                 <a
-                  href="mailto:hello@maceysmethod.com"
+                  href="mailto:maceycherrill27@gmail.com"
                   className="flex items-start text-white/80 hover:text-mint transition-all duration-300 group"
                   style={{ fontFamily: '"Inter", sans-serif' }}
                 >
@@ -164,7 +164,7 @@ export default function Footer() {
                       d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
-                  <span className="break-words text-sm">hello@maceysmethod.com</span>
+                  <span className="break-words text-sm">maceycherrill27@gmail.com</span>
                 </a>
 
                 <div
