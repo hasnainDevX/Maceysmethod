@@ -184,6 +184,4 @@ const testimonials = [
   },
 ];
 
-
-
 export { categories, testimonials };

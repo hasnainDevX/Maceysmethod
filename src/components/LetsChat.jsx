@@ -4,7 +4,7 @@ export default function LetsChat() {
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleBookCall = () => {
-    window.open("https://calendly.com/codebyte-wd/30min", "_blank");
+    window.open("https://calendly.com/maceycherrill27/30min?primary_color=6b8d71", "_blank");
   };
 
   const handleCopyEmail = () => {
