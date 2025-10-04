@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const formRef = useRef();
@@ -110,20 +111,36 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+    const emailData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      newsletter: formData.newsletter ? 'Yes, they want to receive updates' : 'No newsletter subscription',
+    };
 
-      setSubmitStatus("success");
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subject: "",
-        message: "",
-        newsletter: false,
-      });
-      setTouched({});
-      setErrors({});
+    try {
+      const response = await emailjs.send(
+        'service_mgult9h',
+        'template_nrv0xvv',
+        emailData,
+        'fPM-4n0ojfWJzSL2p'
+      );
+
+      if (response.status === 200) {
+        setSubmitStatus("success");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+          newsletter: false,
+        });
+        setTouched({});
+        setErrors({});
+      }
     } catch (error) {
       console.error("Error:", error);
       setSubmitStatus("error");

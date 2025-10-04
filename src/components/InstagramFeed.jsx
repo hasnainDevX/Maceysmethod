@@ -65,7 +65,7 @@ export default function InstagramFeed() {
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <p className="text-sm text-gray-500 font-light italic"
             style={{ fontFamily: '"Inter", sans-serif' }}>
-            Join our community of over 1,000 entrepreneurs and business owners
+            Join our community of over entrepreneurs and business owners
           </p>
         </div>
 
