@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { InfiniteMovingCards } from "./TestimonialsStack";
 import elem1 from "../assets/telement1.png";
 import elem2 from "../assets/telem2.png";
-import { testimonials } from "../../data.js";
+import { testimonials } from "../../data.json";
 import { Link } from "react-scroll";
 
 export default function Testimonials() {

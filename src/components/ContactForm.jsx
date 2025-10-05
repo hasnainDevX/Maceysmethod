@@ -122,10 +122,10 @@ export default function ContactForm() {
 
     try {
       const response = await emailjs.send(
-        'service_mgult9h',
-        'template_nrv0xvv',
+        'service_jvur4ll',
+        'template_cg9efdh',
         emailData,
-        'fPM-4n0ojfWJzSL2p'
+        'rY3JMVuy3R264K20Z'
       );
 
       if (response.status === 200) {

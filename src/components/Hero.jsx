@@ -1,9 +1,10 @@
 import React from "react";
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import clockimg from "../assets/final2.png";
+import { useEffect, useRef } from "react";
 import clientImage from "../assets/clientimg2.jpg";
+import clockimg from "../assets/final2.png";
+import { heroContent } from "../../data.json";
 
 // Register at component top (outside useEffect)
 gsap.registerPlugin(ScrollTrigger);
@@ -12,10 +13,10 @@ export default function Hero() {
   const heroRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
-  const imageRef = useRef(null); // NEW
-  const decorLeftRef = useRef(null); // NEW
-  const decorRightRef = useRef(null); // NEW
-  const circleTextRef = useRef(null); // NEW
+  const imageRef = useRef(null);
+  const decorLeftRef = useRef(null);
+  const decorRightRef = useRef(null);
+  const circleTextRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -46,7 +47,7 @@ export default function Hero() {
         }
       );
 
-      // NEW: Clock image animation (slide from left)
+      // Clock image animation (slide from left)
       gsap.fromTo(
         decorLeftRef.current,
         { x: -100, opacity: 0 },
@@ -59,7 +60,7 @@ export default function Hero() {
         }
       );
 
-      // NEW: Right image reveal (scale + fade)
+      // Right image reveal (scale + fade)
       gsap.fromTo(
         imageRef.current,
         { scale: 1.1, opacity: 0 },
@@ -71,19 +72,7 @@ export default function Hero() {
           delay: 0.3,
         }
       );
-      // Parallax effect for right image
-      // gsap.to(imageRef.current, {
-      //   y: 100,
-      //   ease: "none",
-      //   scrollTrigger: {
-      //     trigger: heroRef.current,
-      //     start: "top top",
-      //     end: "bottom top",
-      //     scrub: 1,
-      //   },
-      // });
 
-      // NEW: Decorative SVG elements (fade in)
       gsap.fromTo(
         ".hero-decor",
         { scale: 0, opacity: 0, rotation: -180 },
@@ -97,8 +86,6 @@ export default function Hero() {
           delay: 1,
         }
       );
-
-      // NEW: Circular text fade in and start spinning
       if (circleTextRef.current) {
         gsap.fromTo(
           circleTextRef.current,
@@ -184,13 +171,12 @@ export default function Hero() {
             className="text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mb-6 lg:mb-8 leading-[0.95] text-white font-bold tracking-tight"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            Grow and scale{" "}
-            <span className="italic font-semibold">your business </span>
-            {/* <br /> */}
+            {heroContent.heading.line1}{" "}
+            <span className="italic font-semibold">{heroContent.heading.line2} </span>
             <span className="text-soft font-semibold my-1 lg:my-2">
-              with behind the scenes
+              {heroContent.heading.line3}
             </span>
-            <span className="font-semibold"> support</span>
+            <span className="font-semibold"> {heroContent.heading.line4}</span>
           </h1>
 
           <div className="relative mb-8 lg:mb-12">
@@ -198,7 +184,7 @@ export default function Hero() {
               className="text-lg sm:text-xl lg:text-2xl font-light text-white/90 leading-relaxed tracking-wide 2xl:text-3xl"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              with a virtual assistant.
+              {heroContent.subheading}
             </p>
             {/* Elegant underline - centered on mobile */}
             <div className="absolute -bottom-2 left-1/2 lg:left-0 transform -translate-x-1/2 lg:translate-x-0 w-20 lg:w-24 h-px bg-white/30"></div>
@@ -210,7 +196,7 @@ export default function Hero() {
             className="group bg-white text-sage px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-xs sm:text-sm uppercase tracking-[0.15em] hover:bg-off-white transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 border border-white/20 2xl:px-16 2xl:py-8 2xl:text-2xl cursor-pointer"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            Learn More
+            {heroContent.buttonText}
             <svg
               className="w-4 h-4 ml-2 inline-block group-hover:translate-x-1 transition-transform duration-300"
               fill="none"
@@ -297,7 +283,7 @@ export default function Hero() {
                   fontFamily="'Inter', 'Helvetica Neue', sans-serif"
                 >
                   <textPath href="#circle">
-                    MACEY • METHOD •• VIRTUAL • ASSISTANT •
+                    {heroContent.circleText}
                   </textPath>
                 </text>
               </svg>

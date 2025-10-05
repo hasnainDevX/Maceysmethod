@@ -1,10 +1,7 @@
 import React from 'react';
+import {marqueeTexts} from '../../../data.json';
 
 export default function ModernMarquee() {
-  const marqueeTexts = [
-    "MACEY METHODS •",
-    "VIRTUAL ASSISTANT •", 
-  ];
 
   return (
     <section className="py-20 pb-12 overflow-hidden relative">

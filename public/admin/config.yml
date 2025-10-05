@@ -1,0 +1,90 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "site_data"
+    label: "Website Content"
+    files:
+      - label: "All Content"
+        name: "data"
+        file: "data.json"
+        fields:
+          - label: "Marquee Texts"
+            name: "marqueeTexts"
+            widget: "list"
+            field: { label: "Text", name: "text", widget: "string" }
+          
+          - label: "Hero Section"
+            name: "heroContent"
+            widget: "object"
+            fields:
+              - label: "Heading"
+                name: "heading"
+                widget: "object"
+                fields:
+                  - { label: "Line 1", name: "line1", widget: "string" }
+                  - { label: "Line 2", name: "line2", widget: "string" }
+                  - { label: "Line 3", name: "line3", widget: "string" }
+                  - { label: "Line 4", name: "line4", widget: "string" }
+              - { label: "Subheading", name: "subheading", widget: "string" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+              - { label: "Circle Text", name: "circleText", widget: "string" }
+          
+          - label: "About Section"
+            name: "aboutContent"
+            widget: "object"
+            fields:
+              - { label: "Welcome", name: "welcome", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description 1", name: "description1", widget: "text" }
+              - { label: "Description 2", name: "description2", widget: "text" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+              - { label: "Circle Text", name: "circleText", widget: "string" }
+          
+          - label: "Instagram Feed"
+            name: "instagramFeedContent"
+            widget: "object"
+            fields:
+              - { label: "Badge", name: "badge", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "CTA Note", name: "ctaNote", widget: "string" }
+              - { label: "Instagram Link", name: "instagramLink", widget: "string" }
+              - { label: "Instagram Button Text", name: "instagramButtonText", widget: "string" }
+              - { label: "LinkedIn Link", name: "linkedinLink", widget: "string" }
+              - { label: "LinkedIn Button Text", name: "linkedinButtonText", widget: "string" }
+          
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Image URL", name: "image", widget: "string" }
+              - { label: "Quote", name: "quote", widget: "text" }
+          
+          - label: "Services"
+            name: "servicesContent"
+            widget: "object"
+            fields:
+              - { label: "Badge", name: "badge", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - label: "Services List"
+                name: "services"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+          
+          - label: "Contact Section"
+            name: "contactContent"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Heading Italic", name: "headingItalic", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }

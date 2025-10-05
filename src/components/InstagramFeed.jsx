@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Instagram, Linkedin } from "lucide-react";
+import { instagramFeedContent } from "../../data.json";
 
 export default function InstagramFeed() {
   const [imageError, setImageError] = useState({});
@@ -33,7 +34,7 @@ export default function InstagramFeed() {
               className="text-rose text-xs font-semibold tracking-[0.4em] uppercase relative z-10"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Stay Connected
+              {instagramFeedContent.badge}
             </span>
             <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose/30 to-transparent"></div>
           </div>
@@ -42,21 +43,21 @@ export default function InstagramFeed() {
             className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
-            Follow My Journey
+            {instagramFeedContent.title}
           </h2>
           
           <p
             className="text-base lg:text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
-            Daily insights, behind-the-scenes content, and business tips to help you grow
+            {instagramFeedContent.description}
           </p>
         </div>
 
         {/* Instagram Feed from Elfsight */}
         <div className="mb-16">
           <div
-            className="elfsight-app-1daf5062-3d4e-4c7c-8c79-9c960b2a88e6"
+            className={instagramFeedContent.elfsightId}
             data-elfsight-app-lazy
           ></div>
         </div>
@@ -65,14 +66,14 @@ export default function InstagramFeed() {
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <p className="text-sm text-gray-500 font-light italic"
             style={{ fontFamily: '"Inter", sans-serif' }}>
-            Join our community of over entrepreneurs and business owners
+            {instagramFeedContent.ctaNote}
           </p>
         </div>
 
         {/* Social Links */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="https://instagram.com/maceys.method"
+            href={instagramFeedContent.instagramLink}
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-gradient-to-r from-sage to-sage/90 text-white px-10 py-4 rounded-2xl 
@@ -81,11 +82,11 @@ export default function InstagramFeed() {
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             <Instagram className="w-4 h-4" />
-            <span>Follow on Instagram</span>
+            <span>{instagramFeedContent.instagramButtonText}</span>
           </a>
 
           <a
-            href="https://www.linkedin.com/in/macey-cherrill-a5b9092aa"
+            href={instagramFeedContent.linkedinLink}
             target="_blank"
             rel="noopener noreferrer"
             className="group text-sage font-medium text-sm uppercase tracking-wider 
@@ -93,7 +94,7 @@ export default function InstagramFeed() {
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
             <Linkedin className="w-4 h-4" />
-            <span>Connect on LinkedIn</span>
+            <span>{instagramFeedContent.linkedinButtonText}</span>
             <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
           </a>
         </div>

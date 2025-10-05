@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import about1image from "../assets/clientimg1.jpg";
 import about2image from "../assets/clientimg2.jpg";
+import { aboutContent } from "../../data.json";
 
 export default function About() {
   const imageRef1 = useRef(null);
@@ -129,7 +130,7 @@ export default function About() {
               className="text-rose/60 text-lg 2xl:text-xl font-light italic mb-6 tracking-wide xl:text-xl"
               style={{ fontFamily: '"Dancing Script", cursive' }}
             >
-              Hey, welcome in!
+              {aboutContent.welcome}
             </p>
 
             {/* Main heading */}
@@ -137,7 +138,7 @@ export default function About() {
               className="text-5xl lg:text-7xl 2xl:text-8xl font-light text-rose mb-8 tracking-tight leading-none"
               style={{ fontFamily: '"Playfair Display", serif' }}
             >
-              I'm Macey
+              {aboutContent.heading}
             </h2>
 
             {/* Description paragraphs */}
@@ -146,18 +147,14 @@ export default function About() {
                 className="text-sm lg:text-base 2xl:text-2xl text-gray-600 leading-relaxed font-light mx-auto"
                 style={{ fontFamily: '"Inter", sans-serif' }}
               >
-                The organised, proactive support behind busy entrepreneurs and
-                growing businesses. Through Macey’s Method, I provide tailored
-                admin and social media support that helps business owners
-                reclaim their time and focus on what they do best.
+                {aboutContent.description1}
               </p>
 
               <p
                 className="text-sm lg:text-base 2xl:text-2xl text-gray-600 leading-relaxed font-light max-w-sm mx-auto"
                 style={{ fontFamily: '"Inter", sans-serif' }}
               >
-                From inboxes to systems, I handle the behind-the-scenes so you
-                can lead, create, and scale your business.
+                {aboutContent.description2}
               </p>
             </div>
 
@@ -167,7 +164,7 @@ export default function About() {
               className="bg-mint text-white px-8 py-3 rounded-full hover:bg-sage transition-all duration-300 font-light text-sm uppercase tracking-widest 2xl:px-12 2xl:py-4 2xl:text-lg shadow-lg hover:shadow-xl cursor-pointer"
               style={{ fontFamily: '"Inter", sans-serif' }}
             >
-              Learn more
+              {aboutContent.buttonText}
             </button>
           </div>
 
@@ -207,7 +204,7 @@ export default function About() {
                     fontFamily="'Inter', 'Helvetica Neue', sans-serif"
                   >
                     <textPath href="#circle">
-                      MACEY • METHOD •• VIRTUAL • ASSISTANT •
+                      {aboutContent.circleText}
                     </textPath>
                   </text>
                 </svg>

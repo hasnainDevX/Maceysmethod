@@ -1,9 +1,9 @@
 import React from "react";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Sparkles, Briefcase, Zap } from "lucide-react"; // Add the icons here
 import { useState } from "react";
 import element1 from "../assets/new8.png";
 import element2 from "../assets/new4.png";
-import { categories } from "../../data.js";
+import data from "../../data.json"; // Import the JSON directly
 import { Link } from "react-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,15 +12,33 @@ import { useEffect, useRef } from "react";
 // Register plugin
 gsap.registerPlugin(ScrollTrigger);
 
+// Icon mapping object
+const iconMap = {
+  Sparkles: Sparkles,
+  Briefcase: Briefcase,
+  Zap: Zap,
+};
+
+
 export default function HowIHelp() {
   const [activeCategory, setActiveCategory] = useState("social");
-  const currentPackages = categories[activeCategory];
-
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const tabsRef = useRef(null);
   const cardsRef = useRef(null);
   const ctaRef = useRef(null);
+
+  // Transform categories to include actual icon components
+  const categories = Object.fromEntries(
+    Object.entries(data.categories).map(([key, category]) => [
+      key,
+      {
+        ...category,
+        icon: iconMap[category.iconName],
+      },
+    ])
+  );
+   const currentPackages = categories[activeCategory];
 
   useEffect(() => {
     // Header animation
@@ -148,31 +166,6 @@ export default function HowIHelp() {
             })}
           </div>
         </div>
-
-        {/* Category Header with Background */}
-        {/* <div className="relative mb-16 rounded-3xl overflow-hidden h-48 group">
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ 
-              backgroundImage: `url('${currentPackages.bgImage}')`,
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-sage/95 via-sage/85 to-transparent"></div>
-          <div className="relative z-10 h-full flex items-center px-12">
-            <div>
-              <h3 className="text-3xl font-light text-white mb-3"
-                style={{ fontFamily: '"Playfair Display", serif' }}>
-                {categories[activeCategory].name} Solutions
-              </h3>
-              <p
-                className="text-white/90 font-light max-w-2xl leading-relaxed"
-                style={{ fontFamily: '"Inter", sans-serif' }}
-              >
-                {currentPackages.description}
-              </p>
-            </div>
-          </div>
-        </div> */}
 
         {/* Packages Grid */}
         <div  ref={cardsRef} className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-16">
