@@ -1,22 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
 import clientImage from "../assets/clientimg2.jpg";
 import clockimg from "../assets/final2.png";
-import { heroContent } from "../../data.json";
+import { heroContent as defaultHeroContent } from "../../data.json";
+import { client } from "../SanityClient";
 
 // Register at component top (outside useEffect)
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+  const [heroContent, setHeroContent] = useState(defaultHeroContent);
   const heroRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
   const imageRef = useRef(null);
   const decorLeftRef = useRef(null);
-  const decorRightRef = useRef(null);
   const circleTextRef = useRef(null);
+
+  useEffect(() => {
+    client
+      .fetch('*[_type == "heroContent"][0]')
+      .then((fetchedData) => {
+        if (fetchedData) {
+          // Transform Sanity data to match JSON structure
+          setHeroContent({
+            heading: {
+              line1: fetchedData.line1 || defaultHeroContent.heading.line1,
+              line2: fetchedData.line2 || defaultHeroContent.heading.line2,
+              line3: fetchedData.line3 || defaultHeroContent.heading.line3,
+              line4: fetchedData.line4 || defaultHeroContent.heading.line4,
+            },
+            subheading: fetchedData.subheading || defaultHeroContent.subheading,
+            buttonText: fetchedData.buttonText || defaultHeroContent.buttonText,
+            circleText: fetchedData.circleText || defaultHeroContent.circleText,
+          });
+        }
+      })
+      .catch((err) => console.error("Error fetching hero content:", err));
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -102,7 +124,7 @@ export default function Hero() {
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [heroContent]);
 
   const scrollToAbout = () => {
     const element = document.getElementById("about");

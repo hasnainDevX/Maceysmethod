@@ -1,21 +1,26 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { InfiniteMovingCards } from "./TestimonialsStack";
 import elem1 from "../assets/telement1.png";
 import elem2 from "../assets/telem2.png";
-import { testimonials } from "../../data.json";
 import { Link } from "react-scroll";
+import { client } from "../../src/SanityClient";
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState([]);
   const sectionRef = useRef(null);
-  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    client.fetch('*[_type == "testimonial"]').then((data) => {
+      setTestimonials(data);
+    });
+  }, []);
+
   return (
     <section
       id="testimonials"
       ref={sectionRef}
       className="py-16 bg-gradient-to- relative overflow-hidden"
     >
-      {/* Subtle decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-[#d4a574]/5 rounded-full blur-3xl animate-pulse"></div>
       <div
         className="absolute bottom-20 right-16 w-40 h-40 bg-[#f0ede8]/40 rounded-full blur-2xl animate-pulse"
@@ -23,7 +28,6 @@ export default function Testimonials() {
       ></div>
 
       <div className="max-w-7xl 2xl:max-w-[120rem] mx-auto px-6 lg:px-12 relative z-10 ">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <h2
             className="text-4xl lg:text-6xl font-light text-sage mb-6 tracking-tight leading-tight"
@@ -31,7 +35,7 @@ export default function Testimonials() {
           >
             Testimonials
           </h2>
-           <p
+          <p
             className="text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: '"Inter", sans-serif' }}
           >
@@ -49,17 +53,17 @@ export default function Testimonials() {
           src={elem2}
           alt="element"
         />
-
-        {/* Testimonials Grid */}
-        <div className="h-[24rem] rounded-md flex flex-col antialiased  items-center justify-center relative overflow-hidden">
+        <div
+          className={`rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden ${
+            testimonials.length <= 3 ? "h-[125vh] md:h-[70vh]" : "md:h-[150vh] h-[180vh]"
+          }`}
+        >
           <InfiniteMovingCards
             items={testimonials}
-            direction="right"
-            speed="very-slow"
+            className="absolute inset-0"
           />
         </div>
 
-        {/* Subtle call-to-action */}
         <div className="text-center mt-16">
           <p
             className="text-lg text-[#666] font-light italic my-2"
@@ -68,14 +72,14 @@ export default function Testimonials() {
             Ready to join these amazing women?
           </p>
           <Link to="contact" smooth={true} duration={500}>
-          <button
-            className="bg-sage text-white px-8 py-4 rounded-full hover:bg-mint transition-all duration-500 shadow-xl hover:shadow-xl font-light text-base uppercase group cursor-pointer"
-            style={{ fontFamily: '"Inter", sans-serif' }}
-          >
-            <span className="transition-all duration-300">
-              Start Your Journey
-            </span>
-          </button>
+            <button
+              className="bg-sage text-white px-8 py-4 rounded-full hover:bg-mint transition-all duration-500 shadow-xl hover:shadow-xl font-light text-base uppercase group cursor-pointer"
+              style={{ fontFamily: '"Inter", sans-serif' }}
+            >
+              <span className="transition-all duration-300">
+                Start Your Journey
+              </span>
+            </button>
           </Link>
         </div>
       </div>

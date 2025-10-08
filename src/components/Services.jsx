@@ -1,10 +1,22 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import data from "../../data.json";
+import { client } from "../SanityClient";
 
 export default function Services() {
+  const [services, setServices] = useState(data.servicesContent.services);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    client.fetch('*[_type == "service"]').then(fetchedData => {
+      if (fetchedData.length > 0) {
+        // Use Sanity data directly including icons
+        setServices(fetchedData);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const elements = document.querySelectorAll(".service-item");
@@ -28,7 +40,7 @@ export default function Services() {
         }
       );
     });
-  }, []);
+  }, [services]);
 
   return (
     <section
@@ -107,9 +119,9 @@ export default function Services() {
             </svg>
           </div>
 
-          {data.servicesContent.services.map((service, index) => (
+          {services.map((service, index) => (
             <div
-              key={index}
+              key={service._id || index}
               className="group text-center relative service-item"
             >
               {index % 3 === 1 && (
@@ -127,10 +139,10 @@ export default function Services() {
                     className="w-8 h-8 text-white group-hover:text-off-white transition-colors duration-300"
                     fill="none"
                     stroke="currentColor"
-                    viewBox={service.icon.viewBox}
+                    viewBox={service.icon?.viewBox || "0 0 24 24"}
                     strokeWidth="1.5"
                   >
-                    {service.icon.paths.map((path, i) => (
+                    {service.icon?.paths?.map((path, i) => (
                       <path key={i} {...path} />
                     ))}
                   </svg>
