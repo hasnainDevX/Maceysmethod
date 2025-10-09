@@ -1,44 +1,60 @@
-import React from "react";
-import { ArrowRight, Star, Sparkles, Briefcase, Zap } from "lucide-react"; // Add the icons here
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { ArrowRight, Star, Sparkles, Briefcase, Zap } from "lucide-react";
 import element1 from "../assets/new8.png";
 import element2 from "../assets/new4.png";
-import data from "../../data.json"; // Import the JSON directly
+import data from "../../data.json";
+import { client } from "../SanityClient";
 import { Link } from "react-scroll";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
 
-// Register plugin
 gsap.registerPlugin(ScrollTrigger);
 
-// Icon mapping object
 const iconMap = {
   Sparkles: Sparkles,
   Briefcase: Briefcase,
   Zap: Zap,
 };
 
-
 export default function HowIHelp() {
   const [activeCategory, setActiveCategory] = useState("social");
+  const [packages, setPackages] = useState(data.categories);
   const sectionRef = useRef(null);
   const headerRef = useRef(null);
   const tabsRef = useRef(null);
   const cardsRef = useRef(null);
   const ctaRef = useRef(null);
 
-  // Transform categories to include actual icon components
-  const categories = Object.fromEntries(
-    Object.entries(data.categories).map(([key, category]) => [
-      key,
-      {
-        ...category,
-        icon: iconMap[category.iconName],
-      },
-    ])
-  );
-   const currentPackages = categories[activeCategory];
+  useEffect(() => {
+    // Try both 'package' and 'packages' to handle schema naming variations
+    client.fetch('*[_type == "packages" || _type == "package"]').then(fetchedPackages => {
+      console.log("Fetched packages from Sanity:", fetchedPackages);
+      
+      if (fetchedPackages.length > 0) {
+        // Group packages by category - merge with JSON structure
+        const grouped = {
+          social: { ...data.categories.social, packages: [] },
+          admin: { ...data.categories.admin, packages: [] },
+          hybrid: { ...data.categories.hybrid, packages: [] }
+        };
+        
+        fetchedPackages.forEach(pkg => {
+          console.log("Processing package:", pkg.title, "Category:", pkg.category);
+          if (grouped[pkg.category]) {
+            grouped[pkg.category].packages.push(pkg);
+          }
+        });
+        
+        console.log("Grouped packages:", grouped);
+        
+        // Update with whatever packages we have - don't require all categories
+        setPackages(grouped);
+      }
+    }).catch(err => {
+      console.error("Error fetching packages:", err);
+      // Keep using JSON data on error
+    });
+  }, []);
 
   useEffect(() => {
     // Header animation
@@ -91,7 +107,19 @@ export default function HowIHelp() {
         },
       }
     );
-  }, [activeCategory]); // Re-run when category changes
+  }, [activeCategory]);
+
+  const categories = Object.fromEntries(
+    Object.entries(packages).map(([key, category]) => [
+      key,
+      {
+        ...category,
+        icon: iconMap[category.iconName || data.categories[key].iconName],
+      },
+    ])
+  );
+
+  const currentPackages = categories[activeCategory];
 
   return (
     <section
@@ -115,7 +143,7 @@ export default function HowIHelp() {
           alt="element"
         />
         {/* Section Header */}
-        <div ref={headerRef} className="text-center mb-12 lg:mb-16">
+        <div className="text-center mb-12 lg:mb-16">
           <div className="inline-block mb-6 relative">
             <span
               className="text-rose text-xs font-semibold tracking-[0.4em] uppercase relative z-10"
@@ -168,10 +196,10 @@ export default function HowIHelp() {
         </div>
 
         {/* Packages Grid */}
-        <div  ref={cardsRef} className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-16">
+        <div ref={cardsRef} className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto mb-16">
           {currentPackages.packages.map((pkg, index) => (
             <div
-              key={index}
+              key={pkg._id || index}
               className={`relative overflow-hidden !rounded-3xl transition-all duration-500 hover:shadow-xl group h-[600px] ${
                 pkg.popular
                   ? "shadow-xl scale-105 lg:scale-110 rounded-2xl"
@@ -204,7 +232,6 @@ export default function HowIHelp() {
                   zIndex: 1,
                 }}
               >
-                {/* <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div> */}
               </div>
 
               {/* Content Container */}

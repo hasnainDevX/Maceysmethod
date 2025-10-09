@@ -1,15 +1,40 @@
 import React from "react";
-import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import about1image from "../assets/clientimg1.jpg";
+import { useEffect, useRef, useState } from "react";
+import { aboutContent as defaultAboutContent } from "../../data.json";
 import about2image from "../assets/clientimg2.jpg";
-import { aboutContent } from "../../data.json";
+import { client } from "../SanityClient";
 
 export default function About() {
+  const [aboutContent, setAboutContent] = useState(defaultAboutContent);
   const imageRef1 = useRef(null);
   const imageRef2 = useRef(null);
   const textRef = useRef(null);
+
+  // Fetch about content from Sanity
+  useEffect(() => {
+    client
+      .fetch('*[_type == "aboutContent"][0]')
+      .then((fetchedData) => {
+        console.log("Fetched about content from Sanity:", fetchedData);
+        
+        if (fetchedData) {
+          setAboutContent({
+            welcome: fetchedData.welcome || defaultAboutContent.welcome,
+            heading: fetchedData.heading || defaultAboutContent.heading,
+            description1: fetchedData.description1 || defaultAboutContent.description1,
+            description2: fetchedData.description2 || defaultAboutContent.description2,
+            buttonText: fetchedData.buttonText || defaultAboutContent.buttonText,
+            circleText: fetchedData.circleText || defaultAboutContent.circleText,
+          });
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching about content:", err);
+        // Keep using JSON data on error
+      });
+  }, []);
 
   useEffect(() => {
     // Register the plugin
@@ -60,7 +85,6 @@ export default function About() {
         },
       }
     );
-  
 
     // Text animation
     gsap.fromTo(
@@ -88,7 +112,7 @@ export default function About() {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [aboutContent]); // Re-run animations when content changes
 
   const scrollToServices = () => {
     const element = document.getElementById("services");
@@ -118,13 +142,11 @@ export default function About() {
               </div>
             </div>
           </div>
-          
 
           {/* Center Text Content */}
           <div className="lg:col-span-1 text-center relative" ref={textRef}>
             {/* Welcome message */}
             <br />
-
             <br />
             <p
               className="text-rose/60 text-lg 2xl:text-xl font-light italic mb-6 tracking-wide xl:text-xl"

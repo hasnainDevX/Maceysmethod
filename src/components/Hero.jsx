@@ -29,7 +29,6 @@ export default function Hero() {
               line1: fetchedData.line1 || defaultHeroContent.heading.line1,
               line2: fetchedData.line2 || defaultHeroContent.heading.line2,
               line3: fetchedData.line3 || defaultHeroContent.heading.line3,
-              line4: fetchedData.line4 || defaultHeroContent.heading.line4,
             },
             subheading: fetchedData.subheading || defaultHeroContent.subheading,
             buttonText: fetchedData.buttonText || defaultHeroContent.buttonText,
@@ -198,7 +197,7 @@ export default function Hero() {
             <span className="text-soft font-semibold my-1 lg:my-2">
               {heroContent.heading.line3}
             </span>
-            <span className="font-semibold"> {heroContent.heading.line4}</span>
+            {/* <span className="font-semibold"> {heroContent.heading.line4}</span> */}
           </h1>
 
           <div className="relative mb-8 lg:mb-12">
