@@ -122,8 +122,8 @@ export default function ContactForm() {
 
     try {
       const response = await emailjs.send(
-        'service_jvur4ll',
-        'template_cg9efdh',
+        'service_293jguw',
+        'template_lobw1f5',
         emailData,
         'rY3JMVuy3R264K20Z'
       );

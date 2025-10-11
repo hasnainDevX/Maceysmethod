@@ -160,7 +160,7 @@
       "bgImage": "https://plus.unsplash.com/premium_photo-1732721750556-f5aef2460dfd?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "packages": [
         {
-          "title": "PACKAGE ONE point one test",
+          "title": "HYBRID LITE",
           "price": "£480",
           "duration": "per month",
           "features": [
@@ -178,7 +178,7 @@
           "img": "https://plus.unsplash.com/premium_photo-1732721750834-9041a9ce16e1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
-          "title": "PACKAGE TWO",
+          "title": "HYBRID PLUS",
           "price": "£650",
           "duration": "per month",
           "features": [
