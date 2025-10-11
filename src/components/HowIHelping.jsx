@@ -161,7 +161,7 @@ export default function HowIHelp() {
           </h2>
 
           {/* Category Tabs */}
-          <div ref={tabsRef} className="flex flex-wrap justify-center gap-3 mt-10">
+          <div className="flex flex-wrap justify-center gap-3 mt-10">
             {Object.entries(categories).map(([key, category]) => {
               const Icon = category.icon;
               return (
