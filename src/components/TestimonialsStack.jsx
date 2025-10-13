@@ -6,6 +6,21 @@ export const InfiniteMovingCards = ({
   items,
   className,
 }) => {
+  // Dynamic grid classes based on number of testimonials
+  const getGridClasses = () => {
+    const count = items.length;
+    
+    if (count === 1) {
+      return "grid-cols-1 justify-items-center"; // Single card centered
+    } else if (count === 2) {
+      return "grid-cols-1 md:grid-cols-2 justify-items-center"; // Two cards side by side, centered
+    } else if (count === 3) {
+      return "grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center"; // Three cards
+    } else {
+      return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 justify-items-center"; // 4+ cards, standard grid
+    }
+  };
+
   return (
     <>
       {/* Google Fonts */}
@@ -16,19 +31,20 @@ export const InfiniteMovingCards = ({
 
       <div
         className={cn(
-          "relative z-20 max-w-7xl 2xl:max-w-[105rem] overflow-hidden mx-auto px-4",
+          "relative z-20 w-full overflow-hidden mx-auto px-4",
           className
         )}
       >
         <ul
           className={cn(
-            "grid gap-6 py-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 place-items-center"
+            "grid gap-6 py-6 place-items-center",
+            getGridClasses()
           )}
         >
           {items.map((item) => (
             <li
               key={item.name}
-              className="relative w-full  rounded-2xl border-0 shadow-lg shadow-[#badbce] px-8 py-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white"
+              className="relative w-full max-w-md h-full rounded-2xl border-0 shadow-lg shadow-[#badbce] px-8 py-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 bg-white"
               style={{
                 background: "#ffffff",
                 boxShadow:

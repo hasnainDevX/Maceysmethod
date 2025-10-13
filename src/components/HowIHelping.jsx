@@ -131,7 +131,7 @@ export default function HowIHelp() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-mint rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose rounded-full filter blur-3xl"></div>
       </div>
-      <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-6 lg:px-16 relative">
+      <div className="max-w-7xl 2xl:max-w-[100rem] mx-auto px-6 lg:px-16 relative">
         <img
           className="block absolute top-[14%] left-0 transform -translate-y-1/2 w-[6rem] lg:w-[8rem] opacity-80"
           src={element1}
@@ -202,8 +202,8 @@ export default function HowIHelp() {
               key={pkg._id || index}
               className={`relative overflow-hidden !rounded-3xl transition-all duration-500 hover:shadow-xl group h-[600px] ${
                 pkg.popular
-                  ? "shadow-xl scale-105 lg:scale-110 rounded-2xl"
-                  : "shadow-lg hover:shadow-2xl rounded-3xl"
+                  ? "shadow-xl scale-105 lg:scale-110 rounded-2xl order-2"
+                  : "shadow-lg hover:shadow-2xl rounded-3xl order-1"
               }`}
             >
               {/* Popular Badge */}

@@ -122,10 +122,10 @@ export default function ContactForm() {
 
     try {
       const response = await emailjs.send(
-        'service_293jguw',
+        'service_mjhdtrx',
         'template_lobw1f5',
         emailData,
-        'rY3JMVuy3R264K20Z'
+        'XyTsXZK_7GkXjeOck'
       );
 
       if (response.status === 200) {
@@ -433,8 +433,8 @@ export default function ContactForm() {
             </div>
           </div>
 
-          {/* Contact Info Section - Redesigned */}
-          <div className="space-y-12 lg:pt-8 px-8 lg:px-0">
+          {/* Contact Info Section */}
+          <div className="space-y-12 lg:pt-8 px-8 lg:px-1">
             <div>
               <h3
                 className="text-3xl font-light text-[#000000] mb-6"

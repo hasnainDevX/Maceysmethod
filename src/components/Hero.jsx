@@ -10,7 +10,8 @@ import { client } from "../SanityClient";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-  const [heroContent, setHeroContent] = useState(defaultHeroContent);
+    const [heroContent, setHeroContent] = useState(null); // Start with null
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const heroRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
@@ -23,7 +24,7 @@ export default function Hero() {
       .fetch('*[_type == "heroContent"][0]')
       .then((fetchedData) => {
         if (fetchedData) {
-          // Transform Sanity data to match JSON structure
+          // Use Sanity data
           setHeroContent({
             heading: {
               line1: fetchedData.line1 || defaultHeroContent.heading.line1,
@@ -34,12 +35,25 @@ export default function Hero() {
             buttonText: fetchedData.buttonText || defaultHeroContent.buttonText,
             circleText: fetchedData.circleText || defaultHeroContent.circleText,
           });
+        } else {
+          // Fallback to JSON if no Sanity data
+          setHeroContent(defaultHeroContent);
         }
+        setIsLoading(false);
       })
-      .catch((err) => console.error("Error fetching hero content:", err));
+      .catch((err) => {
+        console.error("Error fetching hero content:", err);
+        // Fallback to JSON on error
+        setHeroContent(defaultHeroContent);
+        setIsLoading(false);
+      });
   }, []);
 
+
   useEffect(() => {
+   // Don't run animations until content is loaded
+    if (!heroContent || isLoading) return;
+
     const ctx = gsap.context(() => {
       // Existing hero text animation
       gsap.fromTo(
@@ -123,7 +137,7 @@ export default function Hero() {
     }, heroRef);
 
     return () => ctx.revert();
-  }, [heroContent]);
+  }, [heroContent, isLoading]);
 
   const scrollToAbout = () => {
     const element = document.getElementById("about");
@@ -136,7 +150,17 @@ export default function Hero() {
       });
     }
   };
-
+  
+  if (isLoading || !heroContent) {
+    return (
+      <section
+        id="home"
+        className="min-h-screen max-w-screen flex items-center justify-center bg-sage"
+      >
+        <div className="text-white text-xl">...</div>
+      </section>
+    );
+  }
   return (
     <section
       id="home"
