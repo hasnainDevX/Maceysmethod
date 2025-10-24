@@ -242,7 +242,6 @@ export default function Services() {
             <div
               key={service._id || service.title || index}
               className="group text-center relative service-item"
-              style={{ opacity: 0 }}
             >
               {index % 3 === 1 && (
                 <div className="absolute -top-3 -right-3 opacity-20 rotate-12">
