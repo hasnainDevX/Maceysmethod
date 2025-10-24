@@ -9,7 +9,7 @@
 </urlset>
 ```
 
-- [ ] Create `public/robots.txt` - copy this:
+### 2. `public/robots.txt`
 ```
 User-agent: *
 Allow: /

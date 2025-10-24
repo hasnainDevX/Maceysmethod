@@ -16,11 +16,11 @@ import ModernMarquee from '../components/ui/Marquee';
 
 export default function Home() {
   useEffect(() => {
-    // Initialize GSAP animations
+    // GSAP scroll animations
     if (typeof window !== 'undefined' && window.gsap && window.ScrollTrigger) {
       const { gsap, ScrollTrigger } = window;
       
-      // Fade in animations for sections
+      // fade in each section when scrolled into view
       gsap.utils.toArray('section').forEach((section, index) => {
         gsap.fromTo(section, 
           { 
@@ -42,7 +42,7 @@ export default function Home() {
         );
       });
 
-      // Service cards staggered animation
+      // stagger service cards on scroll
       gsap.fromTo('.service-card',
         {
           opacity: 0,
@@ -65,7 +65,7 @@ export default function Home() {
         }
       );
 
-      // Testimonial cards animation
+      // testimonial cards slide in from left
       gsap.fromTo('.testimonial-card',
         {
           opacity: 0,
@@ -90,73 +90,92 @@ export default function Home() {
 
   return (
     <>
-      {/* ✅ SEO Meta Tags */}
       <Helmet>
-        {/* Primary Meta Tags */}
-        <title>Macey's Method | Virtual Assistant Training & Coaching UK</title>
+        {/* Main SEO tags */}
+        <title>Macey's Method | Professional Virtual Assistant Services UK</title>
         <meta 
           name="description" 
-          content="Master virtual assistant skills with Macey's Method. Online training, coaching, and mentorship for aspiring VAs in the UK. Learn bookkeeping, admin, client management, and start earning as a VA." 
+          content="Professional virtual assistant services in the UK. Email management, social media management, calendar management, CRM support, and administrative support for entrepreneurs and growing businesses." 
         />
         <meta 
           name="keywords" 
-          content="virtual assistant training, VA course UK, virtual assistant coaching, online VA training, administrative training, how to become a VA" 
+          content="virtual assistant UK, VA services, email management, social media management, administrative support, business support" 
         />
         <meta name="language" content="English" />
-        <meta name="author" content="Macey's Method" />
+        <meta name="author" content="Macey Cherrill" />
         <meta name="revisit-after" content="7 days" />
         
-        {/* Open Graph (Social Media) */}
+        {/* Canonical */}
+        <link rel="canonical" href="https://maceysmethod.co.uk/" />
+        
+        {/* Social media sharing */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://maceysmethod.co.uk/" />
-        <meta property="og:title" content="Macey's Method | Virtual Assistant Training & Coaching" />
+        <meta property="og:title" content="Macey's Method | Professional Virtual Assistant Services" />
         <meta 
           property="og:description" 
-          content="Professional virtual assistant training and mentorship program in the UK" 
+          content="Grow and scale your business with behind-the-scenes support from a professional virtual assistant" 
         />
         <meta property="og:image" content="https://maceysmethod.co.uk/og-image.jpg" />
         <meta property="og:site_name" content="Macey's Method" />
         
-        {/* Twitter Card */}
-        {/* <meta name="twitter:card" content="summary_large_image" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://maceysmethod.co.uk/" />
-        <meta name="twitter:title" content="Macey's Method | VA Training" /> */}
-        {/* <meta 
-          name="twitter:description" 
-          content="Learn virtual assistant skills with professional coaching" 
-        /> */}
-        {/* <meta name="twitter:image" content="https://maceysmethod.co.uk/og-image.jpg" /> */}
+        <meta name="twitter:title" content="Macey's Method | Virtual Assistant Services" />
+        <meta name="twitter:description" content="Professional administrative and social media support for entrepreneurs" />
+        <meta name="twitter:image" content="https://maceysmethod.co.uk/og-image.jpg" />
         
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://maceysmethod.co.uk/" />
-        
-        {/* JSON-LD Schema - EducationalOrganization */}
+        {/* Business info for Google */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
+            "@type": "LocalBusiness",
             "name": "Macey's Method",
             "url": "https://maceysmethod.co.uk",
             "image": "https://maceysmethod.co.uk/logo.jpg",
-            "description": "Virtual Assistant training and coaching program in the UK",
+            "description": "Professional virtual assistant providing email management, social media management, calendar management, CRM support, and administrative services for entrepreneurs and growing businesses in the UK",
+            "founder": {
+              "@type": "Person",
+              "name": "Macey Cherrill"
+            },
             "sameAs": [
-              "https://www.linkedin.com/in/macey-cherrill-a5b9092aa",
-              "https://www.instagram.com/maceys.method"
+              "https://www.instagram.com/maceys.method",
+              "https://www.linkedin.com/in/macey-cherrill-a5b9092aa"
             ],
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "GB",
               "addressRegion": "United Kingdom"
             },
-            "founder": {
-              "@type": "Person",
-              "name": "Macey"
+            "contact": {
+              "@type": "ContactPoint",
+              "contactType": "Customer Support",
+              "email": "maceycherrill27@gmail.com",
+              "url": "https://maceysmethod.co.uk/#contact"
             },
-            "offers": {
-              "@type": "Offer",
-              "url": "https://maceysmethod.co.uk",
-              "category": "Training Course"
-            },
+            "service": [
+              {
+                "@type": "Service",
+                "name": "Email Management",
+                "description": "Professional email inbox organization and management"
+              },
+              {
+                "@type": "Service",
+                "name": "Social Media Management",
+                "description": "Graphic creation, captions, hashtags, reels, and post scheduling"
+              },
+              {
+                "@type": "Service",
+                "name": "Calendar Management",
+                "description": "Seamlessly coordinate your schedule and optimize your time"
+              },
+              {
+                "@type": "Service",
+                "name": "CRM Support",
+                "description": "Keep backend systems up-to-date and organized"
+              }
+            ],
             "aggregateRating": {
               "@type": "AggregateRating",
               "ratingValue": "4.9",
@@ -165,7 +184,62 @@ export default function Home() {
           })}
         </script>
         
-        {/* JSON-LD Schema - FAQPage */}
+        {/* Organization schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Macey's Method",
+            "url": "https://maceysmethod.co.uk",
+            "logo": "https://maceysmethod.co.uk/logo.jpg",
+            "sameAs": [
+              "https://www.instagram.com/maceys.method",
+              "https://www.linkedin.com/in/macey-cherrill-a5b9092aa"
+            ]
+          })}
+        </script>
+        
+        {/* Navigation breadcrumbs */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://maceysmethod.co.uk/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://maceysmethod.co.uk/#about"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Services",
+                "item": "https://maceysmethod.co.uk/#services"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Pricing",
+                "item": "https://maceysmethod.co.uk/#pricing"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Contact",
+                "item": "https://maceysmethod.co.uk/#contact"
+              }
+            ]
+          })}
+        </script>
+        
+        {/* FAQs for Google rich snippets */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -173,50 +247,50 @@ export default function Home() {
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "What is Macey's Method?",
+                "name": "What services does Macey's Method provide?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Macey's Method is a comprehensive virtual assistant training and coaching program designed to help aspiring VAs develop the skills needed to start and grow a successful VA business."
+                  "text": "Macey's Method provides professional virtual assistant services including email management, social media management, calendar management, CRM support, and administrative tasks for entrepreneurs and growing businesses."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Is this course for beginners?",
+                "name": "What packages are available?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes! Macey's Method welcomes all levels. Whether you're completely new to being a VA or looking to enhance your existing skills, our program is designed for you."
+                  "text": "We offer the Essentials package (£297/month), the Elevate package (£497/month), and custom packages tailored to your specific business needs."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does the training take?",
+                "name": "How can I book a consultation?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "The program is self-paced, allowing you to learn at your own speed. Most students complete the training within 4-8 weeks depending on their commitment level."
+                  "text": "You can schedule a free 30-minute discovery call to discuss your business needs and explore how Macey's Method can support your business growth."
                 }
               },
               {
                 "@type": "Question",
-                "name": "What will I learn in the VA training?",
+                "name": "What is included in the social media package?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "You'll learn bookkeeping, email management, scheduling, client communication, CRM tools, administrative skills, and how to start and manage your own VA business."
+                  "text": "The social media package includes graphic creation, caption writing, hashtag strategy, reel scheduling, and daily engagement with your audience."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do I get one-on-one coaching?",
+                "name": "How do I contact Macey?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Yes, Macey's Method includes personalized coaching and mentorship to help you succeed in your VA journey."
+                  "text": "You can reach out via email at maceycherrill27@gmail.com, schedule a call, or fill out the contact form on the website. Response time is within 24 hours."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How much can I earn as a virtual assistant?",
+                "name": "Is there a free trial or consultation?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "VA earnings vary based on your experience and rates, but many of our graduates earn £15-£50+ per hour depending on their specialization and client base."
+                  "text": "Yes, we offer a complimentary 30-minute discovery call to discuss your goals and see if we're the right fit for your business."
                 }
               }
             ]
