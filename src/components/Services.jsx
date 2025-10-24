@@ -11,30 +11,24 @@ export default function Services() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const sectionRef = useRef(null);
-  const animatedRef = useRef(false);
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        // Fetch from Sanity
         const fetchedData = await client.fetch('*[_type == "service"]');
         
         if (fetchedData && fetchedData.length > 0) {
-          // Successfully got Sanity data
           setServices(fetchedData);
           setError(null);
         } else {
-          // No data from Sanity, use fallback
           console.warn("No services found in Sanity, using fallback data");
           setServices(data.servicesContent.services);
         }
       } catch (err) {
-        // Error fetching from Sanity, use fallback
         console.error("Error fetching services from Sanity:", err);
         setError("Using cached data");
         setServices(data.servicesContent.services);
       } finally {
-        // Always set loading to false after fetch attempt
         setIsLoading(false);
       }
     };
@@ -42,40 +36,6 @@ export default function Services() {
     fetchServices();
   }, []);
 
-   useEffect(() => {
-     // Don't run animations until content is loaded
-      if (!services || isLoading) return;
-
-    const ctx = gsap.context(() => {
-      const elements = sectionRef.current?.querySelectorAll(".service-item");
-      if (!elements || elements.length === 0) return;
-
-      // Simple fade-in animation
-      gsap.fromTo(
-        elements,
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.6, 
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-
-      animatedRef.current = true;
-    }, sectionRef.current ? 100 : 0);
-
-    return () => ctx.revert();
-  }, [services, isLoading]);
-
-  // Render icon from Sanity data or fallback
   const renderIcon = (service) => {
     if (service.icon?.paths && service.icon.paths.length > 0) {
       return (
@@ -93,7 +53,6 @@ export default function Services() {
       );
     }
 
-    // Fallback icon
     return (
       <svg
         className="w-8 h-8 text-white group-hover:text-off-white transition-colors duration-300"
@@ -111,7 +70,6 @@ export default function Services() {
     );
   };
 
-  // Loading state
   if (isLoading) {
     return (
       <section
@@ -128,7 +86,6 @@ export default function Services() {
     );
   }
 
-  // Error state (still shows content with fallback data)
   if (error && services.length === 0) {
     return (
       <section
@@ -154,7 +111,6 @@ export default function Services() {
       id="services"
       className="py-24 lg:py-32 bg-sage relative overflow-hidden"
     >
-      {/* Background decorative elements */}
       <div className="absolute top-12 left-8 opacity-10">
         <svg className="w-16 h-16 text-white" viewBox="0 0 64 64">
           <path
@@ -173,7 +129,6 @@ export default function Services() {
         </svg>
       </div>
 
-      {/* Error banner if using fallback data */}
       {error && (
         <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-6">
           <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-lg p-3 text-center">
@@ -183,7 +138,6 @@ export default function Services() {
       )}
 
       <div className="max-w-7xl 2xl:max-w-[95rem] mx-auto px-6 lg:px-12 relative z-10">
-        {/* Header */}
         <div className="text-center mb-20 relative">
           <h2
             className="text-4xl lg:text-6xl font-light text-white mb-8 tracking-tight leading-tight"
@@ -219,7 +173,6 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 relative">
           <div className="absolute -top-6 -left-6 opacity-15 pointer-events-none">
             <svg className="w-12 h-12 text-white" viewBox="0 0 48 48">
