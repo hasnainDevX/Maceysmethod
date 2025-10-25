@@ -43,48 +43,48 @@ export default function Home() {
       });
 
       // stagger service cards on scroll
-      gsap.fromTo('.service-card',
-        {
-          opacity: 0,
-          y: 30,
-          scale: 0.95
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: '.services-grid',
-            start: "top 70%",
-            end: "bottom 30%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
+      // gsap.fromTo('.service-card',
+      //   {
+      //     opacity: 0,
+      //     y: 30,
+      //     scale: 0.95
+      //   },
+      //   {
+      //     opacity: 1,
+      //     y: 0,
+      //     scale: 1,
+      //     duration: 0.8,
+      //     stagger: 0.2,
+      //     ease: "power2.out",
+      //     scrollTrigger: {
+      //       trigger: '.services-grid',
+      //       start: "top 70%",
+      //       end: "bottom 30%",
+      //       toggleActions: "play none none reverse"
+      //     }
+      //   }
+      // );
 
       // testimonial cards slide in from left
-      gsap.fromTo('.testimonial-card',
-        {
-          opacity: 0,
-          x: -30
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: '.testimonials-grid',
-            start: "top 70%",
-            end: "bottom 30%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
+      // gsap.fromTo('.testimonial-card',
+      //   {
+      //     opacity: 0,
+      //     x: -30
+      //   },
+      //   {
+      //     opacity: 1,
+      //     x: 0,
+      //     duration: 0.8,
+      //     stagger: 0.15,
+      //     ease: "power2.out",
+      //     scrollTrigger: {
+      //       trigger: '.testimonials-grid',
+      //       start: "top 70%",
+      //       end: "bottom 30%",
+      //       toggleActions: "play none none reverse"
+      //     }
+      //   }
+      // );
     }
   }, []);
 

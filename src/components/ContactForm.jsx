@@ -521,7 +521,7 @@ export default function ContactForm() {
             {/* Professional workspace image */}
             <div className="rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <img
-                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1470&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1752224543110-35faed040b91?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=464"
                 alt="Professional workspace with modern aesthetic"
                 className="w-full h-[20rem] object-cover"
                 data-testid="img-contact"
