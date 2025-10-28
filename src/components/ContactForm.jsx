@@ -204,7 +204,7 @@ export default function ContactForm() {
                       onBlur={handleBlur}
                       className={getInputClassName("firstName")}
                       style={{ fontFamily: "Inter, sans-serif" }}
-                      placeholder="John"
+                      placeholder="First Name"
                       data-testid="input-first-name"
                     />
                     {touched.firstName && !errors.firstName && formData.firstName && (
