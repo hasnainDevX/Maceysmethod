@@ -486,9 +486,9 @@ export default function ContactForm() {
               </div>
 
               <div className="flex items-start gap-4 group">
-                <div className="w-12 h-12 bg-[#badbce] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-12 h-12 bg-[#ecc9c6] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    className="w-6 h-6 text-[#6b8d71]"
+                    className="w-6 h-6 text-[#df749d]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
