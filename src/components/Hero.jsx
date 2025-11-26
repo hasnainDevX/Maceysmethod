@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import clientImage from "../assets/clientimg2.jpg";
+import clientImage from "../assets/clientimg6.jpg";
 import clockimg from "../assets/final2.png";
 import { heroContent as defaultHeroContent } from "../../data.json";
 import { client } from "../SanityClient";
