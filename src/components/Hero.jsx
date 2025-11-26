@@ -10,7 +10,7 @@ import { client } from "../SanityClient";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-    const [heroContent, setHeroContent] = useState(null); // Start with null
+  const [heroContent, setHeroContent] = useState(null); // Start with null
   const [isLoading, setIsLoading] = useState(true); // Add loading state
   const heroRef = useRef(null);
   const textRef = useRef(null);
@@ -49,9 +49,8 @@ export default function Hero() {
       });
   }, []);
 
-
   useEffect(() => {
-   // Don't run animations until content is loaded
+    // Don't run animations until content is loaded
     if (!heroContent || isLoading) return;
 
     const ctx = gsap.context(() => {
@@ -150,7 +149,7 @@ export default function Hero() {
       });
     }
   };
-  
+
   if (isLoading || !heroContent) {
     return (
       <section
@@ -217,11 +216,10 @@ export default function Hero() {
             style={{ fontFamily: '"Playfair Display", serif' }}
           >
             {heroContent.heading.line1}{" "}
-            <span className="italic font-semibold">{heroContent.heading.line2} </span>
-            <span className="text-soft font-semibold my-1 lg:my-2">
+            <span className="font-semibold">{heroContent.heading.line2} </span>
+            <span className="font-semibold my-1 lg:my-2">
               {heroContent.heading.line3}
             </span>
-            {/* <span className="font-semibold"> {heroContent.heading.line4}</span> */}
           </h1>
 
           <div className="relative mb-8 lg:mb-12">
@@ -327,9 +325,7 @@ export default function Hero() {
                   letterSpacing="3px"
                   fontFamily="'Inter', 'Helvetica Neue', sans-serif"
                 >
-                  <textPath href="#circle">
-                    {heroContent.circleText}
-                  </textPath>
+                  <textPath href="#circle">{heroContent.circleText}</textPath>
                 </text>
               </svg>
             </div>
