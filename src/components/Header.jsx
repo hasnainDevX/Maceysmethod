@@ -77,7 +77,7 @@ export default function Header() {
                   className="text-2xl lg:text-3xl font-light tracking-wide text-app-black cursor-pointer hover:text-sage transition-all duration-300"
                   style={{ fontFamily: 'Georgia, serif' }}
                 >
-                  Macey's Methods
+                  Macey's Method
                 </h1>
               </Link>
             </div>

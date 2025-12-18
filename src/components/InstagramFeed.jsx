@@ -63,12 +63,12 @@ export default function InstagramFeed() {
         </div>
 
         {/* CTA Note */}
-        <div className="text-center mb-12 max-w-2xl mx-auto">
+        {/* <div className="text-center mb-12 max-w-2xl mx-auto">
           <p className="text-sm text-gray-500 font-light italic"
             style={{ fontFamily: '"Inter", sans-serif' }}>
             {instagramFeedContent.ctaNote}
           </p>
-        </div>
+        </div> */}
 
         {/* Social Links */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
