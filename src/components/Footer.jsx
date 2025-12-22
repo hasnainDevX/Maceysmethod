@@ -78,12 +78,12 @@ export default function Footer() {
                 <div className="w-16 h-1 bg-gradient-to-r from-mint to-rose rounded-full"></div>
               </div>
 
-              <p
+              {/* <p
                 className="text-white/80 leading-relaxed text-sm lg:text-base"
                 style={{ fontFamily: '"Inter", sans-serif' }}
               >
                 Supporting ambitious entrepreneurs by managing the details, so you can focus on building the business everyone talks about.
-              </p>
+              </p> */}
 
               {/* Social Links */}
               <div className="flex space-x-3">

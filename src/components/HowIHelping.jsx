@@ -246,18 +246,18 @@ export default function HowIHelp() {
                   </h3>
 
                   <div className="mb-4">
-                    <span
+                    {/* <span
                       className="text-5xl lg:text-6xl font-light drop-shadow-lg"
                       style={{ fontFamily: '"Playfair Display", serif' }}
                     >
                       {pkg.price}
-                    </span>
-                    <span
+                    </span> */}
+                    {/* <span
                       className="text-white/90 text-sm font-light ml-2 drop-shadow"
                       style={{ fontFamily: '"Inter", sans-serif' }}
                     >
                       {pkg.duration}
-                    </span>
+                    </span> */}
                   </div>
 
                   <div className="bg-white/20 backdrop-blur-sm rounded-full py-2 px-4 inline-block">
